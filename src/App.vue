@@ -14,8 +14,17 @@ export default {
 </script>
 
 <style>
+@font-face {
+  font-family: 'Bricolage';
+  src: url('./assets/fonts/BricolageGrotesque.ttf');
+}
+@font-face {
+  font-family: 'Brandon';
+  src: url('./assets/fonts/Brandon_reg.otf');
+}
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Bricolage, Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
