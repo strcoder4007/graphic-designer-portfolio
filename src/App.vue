@@ -1,17 +1,15 @@
 <template>
   <NavBar></NavBar>
-  <LandingPage msg="Welcome to Your Vue.js App" />
+  <router-view></router-view>
 </template>
 
 <script>
 import NavBar from "./components/NavBar.vue";
-import LandingPage from "./components/LandingPage.vue";
 
 export default {
   name: "App",
   components: {
-    NavBar,
-    LandingPage
+    NavBar
   },
 };
 </script>

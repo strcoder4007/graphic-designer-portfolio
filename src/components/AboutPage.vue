@@ -1,113 +1,150 @@
 <template>
-  <div class="container">
+  <div class="about-page">
     <el-row>
-      <el-col class="intro-section">
-        <div class="greetings">Hey there, I'm Riny</div>
-        <div class="profile">UI/UX Designer</div>
-        <div class="description">I help business grow by crafting amazing web experiences. If you’re looking for a designer that likes to get stuff done, let’s talk.</div>
-
-        <div class="resume-container">
-          <el-button class="action-btn">
-            See my work
-            <img src="../assets/icons/arrow-down.png" alt="Arrow Right Icon" />
-          </el-button>
-          <el-button class="action-btn">
-            Download CV
-            <img src="../assets/icons/download.png" alt="Arrow Right Icon" />
-          </el-button>
-        </div>
+      <el-col :span="24">
+        <span class="header">Hi! I’m Riny yadav. </span>
+        <span class="description">{{ description }}</span>
+        <el-row class="image-section">
+          <el-col :span="12"><img src="../assets/portrait/one.jpeg"></el-col>
+          <el-col :span="12"><img src="../assets/portrait/two.jpeg"></el-col>
+        </el-row>
       </el-col>
     </el-row>
+    <div class="promises-header">Regardless of project size, you will always get:</div>
+    <el-row>
+      <el-col :span="12" class="promises">
+        <img src="../assets/icons/clock.svg">
+        <span class="promise-subheader">On-time delivery</span>
+        <span class="promise-description">I know time is money so I don’t want to waste yours. Or mine. So I guarantee that I will always deliver what you pay for as promised.</span>
+      </el-col>
+      <el-col :span="12" class="promises">
+        <img src="../assets/icons/quality.svg">
+        <span class="promise-subheader">Quality</span>
+        <span class="promise-description">I don’t want to put my name on something subpar so my first concern is always quality. No matter what, you will love the end result.</span>
+      </el-col>
+      <el-col :span="12" class="promises">
+        <img src="../assets/icons/rocket.svg">
+        <span class="promise-subheader">I can design and build a responsive and accessible  website</span>
+        <span class="promise-description">My goal is to build accessible and responsive user interfaces for the web and mobile, while preserving the best practices for proper user experience. </span>
+      </el-col>
+      <el-col :span="12" class="promises">
+        <img src="../assets/icons/phone.svg">
+        <span class="promise-subheader">I can design a mobile app for iOS and Android</span>
+        <span class="promise-description">I started designing mobile apps and I love it. It’s a different process compared to traditional website design but I’ve been successful in all projects so far.</span>
+      </el-col>
+    </el-row>
+    <FreelanceSection></FreelanceSection>
+    <FooterSection></FooterSection>
   </div>
 </template>
 
 <script>
-// import { ref } from 'vue';
+import FooterSection from './sections/FooterSection.vue';
+import FreelanceSection from './sections/FreelanceSection.vue';
 
 export default {
   name: "AboutPage",
-  setup() {
-
-    return {
-    };
+  mounted() {
+    
   },
+  setup() {
+    const description = `An illustrator, designer who brings inclusive, minimal and future oriented user experience to people in need.
+    I came to graphic design from a background in human resources, which gives me a strong background in communication, It was the best decision I ever made because it showed me what I wanted to do for the rest of my life.
+    I was driven to designing because it felt exciting and rewarding to learn about people’s goals and desires, help them solve their problems and make their lives easier.
+    I help businesses all around the world by designing websites and mobile apps.
+    Right now I’m based in Noida.`;
+    return {
+      description
+    }
+  },
+  components: {
+    FreelanceSection,
+    FooterSection
+},
 };
 </script>
 
 <style lang="scss" scoped>
-
-.container {
-  background: transparent;
-}
-.intro-section {
-  height: calc(100vh - 100px);
-  background: transparent;
-  backdrop-filter: blur(2px);
+.about-page {
+  height: auto;
+  min-height: calc(100vh - 100px);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 200px;
+  text-align: left;
+}
 
-  .greetings {
-    text-align: center;
-    font-family: Brandon;
-    font-size: 59px;
-    font-style: normal;
-    font-weight: 330;
-    line-height: 72px; /* 122.034% */
-    letter-spacing: -1.77px;
-    background: var(--brand-gradient, linear-gradient(90deg, #FE572E 0%, #FC3A79 100%));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.header {
+  display: block;
+  color: var(--Black, #261F22);
+  font-family: "Brandon";
+  font-size: 84px;
+  font-style: normal;
+  font-weight: 450;
+  line-height: 112px;
+  margin-bottom: 40px;
+}
+.description {
+  display: block;
+  color: var(--black75, rgba(38, 31, 34, 0.75));
+  font-family: Brandon;
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px;
+  width: auto;
+  min-width: 400px;
+  margin-bottom: 40px;
+}
+
+.image-section {
+    img {
+      width: 100%;
+      height: 600px;
+      object-fit: cover;
+      margin-bottom: 40px;
+    }
+}
+
+.promises-header {
+  color: var(--Black, #261F22);
+  font-family: "Brandon";
+  font-size: 59px;
+  font-style: normal;
+  font-weight: 330;
+  line-height: 72px; 
+  letter-spacing: -1.77px;
+  margin: 150px 0;
+}
+
+.promises {
+  padding: 0 40px 40px 0;
+  img {
+    width: 64px;
+    height: 64px;
   }
-  .profile {
+  .promise-subheader {
+    display: block;
     color: var(--Black, #261F22);
-    text-align: center;
-    font-family: Bricolage;
-    font-size: 119px;
+    font-family: "Brandon";
+    font-size: 28px;
     font-style: normal;
-    font-weight: 700;
-    line-height: 144px; /* 121.008% */
-    letter-spacing: -3.57px;
+    font-weight: 450;
+    line-height: 40px;
+    margin-bottom: 30px;
+    margin-top: 10px;
   }
-
-  .description {
+  .promise-description {
     color: var(--black75, rgba(38, 31, 34, 0.75));
-    text-align: center;
     font-family: Bricolage;
     font-size: 21px;
     font-style: normal;
     font-weight: 400;
-    line-height: 30px; /* 142.857% */
-  }
-
-  .resume-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 40px 0;
-  }
-  .action-btn {
-    color: #FFF;
-    font-family: Bricolage;
-    font-size: 21px;
-    font-style: normal;
-    font-weight: 700;
     line-height: 30px;
-    border-radius: 100px;
-    padding: 36px 48px;
-    background: var(--brand-gradient, linear-gradient(90deg, #FE572E 0%, #FC3A79 100%));
-    box-shadow: 0px 2.76726px 2.21381px 0px rgba(0, 0, 0, 0.02), 0px 6.6501px 5.32008px 0px rgba(0, 0, 0, 0.03), 0px 12.52155px 10.01724px 0px rgba(0, 0, 0, 0.04), 0px 22.33631px 17.86905px 0px rgba(0, 0, 0, 0.04);
-    img {
-      width: 20px;
-      height: 20px;
-      margin-left: 15px;
-    }
-  }
-  @media (max-width: 768px) {
-
   }
 }
+
+
 </style>

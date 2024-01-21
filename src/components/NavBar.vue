@@ -28,19 +28,25 @@
 </template>
 
 <script>
-import { ref } from 'vue';
-import router from "@/router";
+import { onMounted, ref } from 'vue';
+import { useRouter } from 'vue-router'
 
 export default {
   setup() {
+    const router = useRouter();
     const activeIndex = ref('home');
     const isMenuOpen = ref(false);
 
+    onMounted(() => {
+      // Set active index based on current route
+      // activeIndex.value = router.currentRoute.value.name;
+    })
+
     const handleSelect = (name) => {
-      // Handle navigation or route changes based on selected item
-      router.push({name});
       activeIndex.value = name;
       isMenuOpen.value = false; // Close menu after selection
+      // Handle navigation or route changes based on selected item
+      router.push({name});
     };
 
     const toggleMenu = () => {
