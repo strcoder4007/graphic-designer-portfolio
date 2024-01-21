@@ -2,7 +2,7 @@
   <header class="navbar">
     <div class="navbar-container">
       <div class="brand-section">
-        <img :src="brandIcon" alt="Brand Icon" class="brand-icon" @click="toggleMenu" />
+        <img src="../assets/icons/brand-icon.png" alt="Brand Icon" class="brand-icon" @click="toggleMenu" />
       </div>
       <div class="navbar-menu">
         <button class="menu-toggle" @click="toggleMenu">
@@ -13,7 +13,7 @@
         <ul class="menu-items" :class="{ 'is-open': isMenuOpen }">
           <li class="menu-item" :class="{ 'active': activeIndex === 'home' }" @click="handleSelect('home')">Home</li>
           <li class="menu-item" :class="{ 'active': activeIndex === 'portfolio' }" @click="handleSelect('portfolio')">Portfolio</li>
-          <li class="menu-item riny-designs" :class="{ 'active': activeIndex === 'riny-designs' }" @click="handleSelect('riny-designs')">Riny Designs</li>
+          <li class="menu-item riny-designs" @click="handleSelect('riny-designs')">Riny Designs</li>
           <li class="menu-item" :class="{ 'active': activeIndex === 'about' }" @click="handleSelect('about')">About me</li>
           <li class="menu-item" :class="{ 'active': activeIndex === 'contact' }" @click="handleSelect('contact')">Contact</li>
         </ul>
@@ -49,8 +49,7 @@ export default {
       activeIndex,
       handleSelect,
       toggleMenu,
-      isMenuOpen,
-      brandIcon: 'path/to/your/brand/icon.png', // Replace with your brand icon path
+      isMenuOpen
     };
   },
 };
@@ -59,15 +58,33 @@ export default {
 <style lang="scss" scoped>
 .navbar {
   height: 100px;
-  padding: 0 1rem;
+  padding: 0 2rem;
   background-color: #FBE9E9;
   display: flex;
   align-items: center;
   justify-content: space-between;
 
+
+  .riny-designs {
+    color: #261F22;
+    font-family: Brandon, sans-serif;
+    font-size: 38px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 42px;
+    letter-spacing: 5.7px;
+    text-transform: uppercase;
+    margin-top: 0px !important;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
   @media (max-width: 768px) {
     .navbar-menu {
       display: none;
+      padding: 0;
 
       &.is-open {
         display: block;
@@ -92,8 +109,6 @@ export default {
   .navbar-container {
     display: flex;
     align-items: center;
-    flex-grow: 1;
-    justify-content: space-between;
     width: 100%;
 
     .brand-section,
@@ -101,7 +116,11 @@ export default {
       width: auto;
     }
 
-    .brand-icon,
+    .brand-icon {
+      width: 30px;
+      height: auto;
+      cursor: pointer;
+    }
     .social-icon {
       width: 15px;
       height: auto;
@@ -114,10 +133,9 @@ export default {
     }
 
     .navbar-menu {
-      width: auto;
       display: flex;
       flex-grow: 1;
-      align-items: center;
+      padding: 0 150px;
 
       .menu-items {
         display: flex;
@@ -126,10 +144,10 @@ export default {
 
         .menu-item {
           list-style: none;
-          margin: 0 10px;
           font-weight: bold;
           text-decoration: none;
           cursor: pointer;
+          margin-top: 10px;
 
           &.active::after {
             content: '';
@@ -144,21 +162,6 @@ export default {
         }
       }
     }
-  }
-
-  .riny-designs {
-    color: #261F22;
-    font-family: Brandon, sans-serif;
-    font-size: 38px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 42px;
-    letter-spacing: 5.7px;
-    text-transform: uppercase;
-  }
-
-  .menu-toggle {
-    display: none;
   }
 }
 </style>
