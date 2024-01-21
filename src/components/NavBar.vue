@@ -11,11 +11,11 @@
           <span class="icon-bar"></span>
         </button>
         <ul class="menu-items" :class="{ 'is-open': isMenuOpen }">
-          <li class="menu-item" :class="{ 'active': activeIndex === 'home' }" @click="handleSelect('home')">Home</li>
-          <li class="menu-item" :class="{ 'active': activeIndex === 'portfolio' }" @click="handleSelect('portfolio')">Portfolio</li>
-          <li class="menu-item riny-designs" @click="handleSelect('riny-designs')">Riny Designs</li>
-          <li class="menu-item" :class="{ 'active': activeIndex === 'about' }" @click="handleSelect('about')">About me</li>
-          <li class="menu-item" :class="{ 'active': activeIndex === 'contact' }" @click="handleSelect('contact')">Contact</li>
+          <li class="menu-item" :class="{ 'active': activeIndex === 'home' }" @click="handleSelect('Home')">Home</li>
+          <li class="menu-item" :class="{ 'active': activeIndex === 'portfolio' }" @click="handleSelect('Portfolio')">Portfolio</li>
+          <li class="menu-item riny-designs" @click="handleSelect('Home')">Riny Designs</li>
+          <li class="menu-item" :class="{ 'active': activeIndex === 'about' }" @click="handleSelect('About')">About me</li>
+          <li class="menu-item" :class="{ 'active': activeIndex === 'contact' }" @click="handleSelect('Contact')">Contact</li>
         </ul>
       </div>
       <div class="social-section">
@@ -29,15 +29,17 @@
 
 <script>
 import { ref } from 'vue';
+import router from "@/router";
 
 export default {
   setup() {
     const activeIndex = ref('home');
     const isMenuOpen = ref(false);
 
-    const handleSelect = (key) => {
+    const handleSelect = (name) => {
       // Handle navigation or route changes based on selected item
-      activeIndex.value = key;
+      router.push({name});
+      activeIndex.value = name;
       isMenuOpen.value = false; // Close menu after selection
     };
 

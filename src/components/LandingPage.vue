@@ -1,6 +1,5 @@
 <template>
   <div>
-    <NavBar></NavBar>
     <IntroSection></IntroSection>
     <WorkSection></WorkSection>
     <FreelanceSection></FreelanceSection>
@@ -9,18 +8,16 @@
 </template>
 
 <script>
-import NavBar from "./NavBar.vue";
-import IntroSection from "./IntroSection.vue";
-import WorkSection from "./WorkSection.vue";
-import FreelanceSection from "./FreelanceSection.vue";
-import FooterSection from "./FooterSection.vue";
+import IntroSection from "./sections/IntroSection.vue";
+import WorkSection from "./sections/WorkSection.vue";
+import FreelanceSection from "./sections/FreelanceSection.vue";
+import FooterSection from "./sections/FooterSection.vue";
 export default {
   name: "LandingPage",
   props: {
     msg: String,
   },
   components: {
-    NavBar,
     IntroSection,
     WorkSection,
     FreelanceSection,
