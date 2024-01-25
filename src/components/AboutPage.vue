@@ -106,7 +106,7 @@ export default {
       object-fit: cover;
       margin-bottom: 40px;
     }
-}
+} 
 
 .promises-header {
   color: var(--Black, #261F22);
