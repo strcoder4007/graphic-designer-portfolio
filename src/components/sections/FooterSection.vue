@@ -1,9 +1,9 @@
 <template>
     <div class="footer-section">
         <div class="social-section">
-            <img src="../../assets/icons/dribble-icon.png" alt="Dribble Icon" class="social-icon" />
-            <img src="../../assets/icons/linkedin-icon.png" alt="LinkedIn Icon" class="social-icon" />
-            <img src="../../assets/icons/behance-icon.png" alt="Behance Icon" class="social-icon" />
+            <a href="https://www.behance.net/rinyyadav" target="_blank"><img src="../../assets/icons/dribble-icon.png" alt="Dribble Icon" class="social-icon" /></a>
+            <a href="https://www.behance.net/rinyyadav" target="_blank"><img src="../../assets/icons/linkedin-icon.png" alt="LinkedIn Icon" class="social-icon" /></a>
+            <a href="https://www.behance.net/rinyyadav" target="_blank"><img src="../../assets/icons/behance-icon.png" alt="Behance Icon" class="social-icon" /></a>
         </div>
         <el-row class="policy-and-terms-section">
             <el-col :span="12">
@@ -60,5 +60,19 @@
     font-weight: 500;
     line-height: 24px;
     margin-top: 20px;
+}
+.social-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    min-width: 300px;
+    a {
+        margin: 0 15px;
+    }
+    img {
+        width: auto;
+        height: 30px;
+    }
 }
 </style>
