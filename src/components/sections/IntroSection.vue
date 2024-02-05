@@ -7,7 +7,7 @@
         <div class="description">I help business grow by crafting amazing web experiences. If you’re looking for a designer that likes to get stuff done, let’s talk.</div>
 
         <div class="resume-container">
-          <el-button class="action-btn">
+          <el-button class="action-btn" @click="scrollToWork()">
             See my work
             <img src="../../assets/icons/arrow-down.png" alt="Arrow Right Icon" />
           </el-button>
@@ -30,6 +30,12 @@ export default {
     return {
     };
   },
+  methods: {
+    scrollToWork() {
+      document.getElementById('work-section').scrollIntoView()
+    }
+  
+  }
 };
 </script>
 

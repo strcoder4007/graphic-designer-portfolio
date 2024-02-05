@@ -17,9 +17,6 @@ export default {
   props: {
     msg: String,
   },
-  mounted() {
-    console.log('LandingPage mounted')
-  },
   components: {
     IntroSection,
     WorkSection,

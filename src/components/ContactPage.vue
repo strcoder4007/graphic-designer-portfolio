@@ -28,7 +28,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 200px;
+  margin: 200px auto 50px auto;
   .freelance-section {
     
   }

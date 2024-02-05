@@ -6,12 +6,6 @@
             <a href="https://www.behance.net/rinyyadav" target="_blank"><img src="../../assets/icons/behance-icon.png" alt="Behance Icon" class="social-icon" /></a>
         </div>
         <el-row class="policy-and-terms-section">
-            <el-col :span="12">
-                <span class="policy-and-terms">Privacy Policy</span>
-            </el-col>
-            <el-col :span="12">
-                <span class="policy-and-terms">Terms of Use</span>
-            </el-col>
             <el-col :span="24" class="rights">
                 © 2024 Riny Yadav. All rights reserved.
             </el-col>
@@ -25,6 +19,7 @@
 </script>
 <style scoped>
 .footer-section {
+    padding-top: 100px;
     height: auto;
     max-height: 600px;
     min-height: 300px;
@@ -42,7 +37,7 @@
     align-items: center;
     width: auto;
     min-width: 300px;
-    margin: 35px 0;
+    margin: 10px 0 35px 0;
 
     color: var(--Black, #261F22);
     font-family: "Brandon";

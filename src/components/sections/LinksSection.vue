@@ -18,7 +18,8 @@
 </script>
 <style scoped>
 .links-section {
-    padding-top: 30px;
+    padding-top: 70px;
+    padding-bottom: 30px;
     height: auto;
     min-height: 300px;
     width: 100vw;
