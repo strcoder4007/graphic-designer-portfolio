@@ -26,6 +26,7 @@ export default {
 
 html {
   scroll-behavior: smooth;
+  height: auto;
 }
 
 #app {

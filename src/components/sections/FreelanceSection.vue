@@ -29,7 +29,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: start;
-    padding: 40px 20vw;
+    padding: 100px 20vw;
 }
 .title {
     display: block;

@@ -19,7 +19,7 @@
 </script>
 <style scoped>
 .footer-section {
-    padding-top: 100px;
+    padding-top: 80px;
     height: auto;
     max-height: 600px;
     min-height: 300px;
@@ -29,6 +29,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    align-self: center;
     border-top: 1px solid #261F221A;
 }
 .policy-and-terms-section {

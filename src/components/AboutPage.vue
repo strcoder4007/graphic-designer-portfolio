@@ -33,7 +33,7 @@
         <span class="promise-description">I started designing mobile apps and I love it. It’s a different process compared to traditional website design but I’ve been successful in all projects so far.</span>
       </el-col>
     </el-row>
-    <FreelanceSection></FreelanceSection>
+    <FreelanceSection class="freelance-section"></FreelanceSection>
     <FooterSection></FooterSection>
   </div>
 </template>
@@ -71,9 +71,13 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  margin: 200px;
+  align-items: baseline;
+  margin: 200px 150px 50px 150px;
   text-align: left;
+}
+
+.freelance-section {
+  margin-top: 80px;
 }
 
 .header {
@@ -116,7 +120,7 @@ export default {
   font-weight: 330;
   line-height: 72px; 
   letter-spacing: -1.77px;
-  margin: 150px 0;
+  margin: 150px 0 100px 0;
 }
 
 .promises {
@@ -129,7 +133,7 @@ export default {
     display: block;
     color: var(--Black, #261F22);
     font-family: "Brandon";
-    font-size: 28px;
+    font-size: 30px;
     font-style: normal;
     font-weight: 450;
     line-height: 40px;
@@ -139,7 +143,7 @@ export default {
   .promise-description {
     color: var(--black75, rgba(38, 31, 34, 0.75));
     font-family: Bricolage;
-    font-size: 21px;
+    font-size: 18px;
     font-style: normal;
     font-weight: 400;
     line-height: 30px;
