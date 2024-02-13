@@ -1,41 +1,44 @@
 <template>
-  <div class="about-page">
-    <el-row>
-      <el-col :span="24">
-        <span class="header">Hi! I’m Riny yadav. </span>
-        <span class="description">{{ description }}</span>
-        <el-row class="image-section">
-          <el-col :span="12"><img src="../assets/portrait/one.jpeg"></el-col>
-          <el-col :span="12"><img src="../assets/portrait/two.jpeg"></el-col>
-        </el-row>
-      </el-col>
-    </el-row>
-    <div class="promises-header">Regardless of project size, you will always get:</div>
-    <el-row>
-      <el-col :span="12" class="promises">
-        <img src="../assets/icons/clock.svg">
-        <span class="promise-subheader">On-time delivery</span>
-        <span class="promise-description">I know time is money so I don’t want to waste yours. Or mine. So I guarantee that I will always deliver what you pay for as promised.</span>
-      </el-col>
-      <el-col :span="12" class="promises">
-        <img src="../assets/icons/quality.svg">
-        <span class="promise-subheader">Quality</span>
-        <span class="promise-description">I don’t want to put my name on something subpar so my first concern is always quality. No matter what, you will love the end result.</span>
-      </el-col>
-      <el-col :span="12" class="promises">
-        <img src="../assets/icons/rocket.svg">
-        <span class="promise-subheader">I can design and build a responsive and accessible  website</span>
-        <span class="promise-description">My goal is to build accessible and responsive user interfaces for the web and mobile, while preserving the best practices for proper user experience. </span>
-      </el-col>
-      <el-col :span="12" class="promises">
-        <img src="../assets/icons/phone.svg">
-        <span class="promise-subheader">I can design a mobile app for iOS and Android</span>
-        <span class="promise-description">I started designing mobile apps and I love it. It’s a different process compared to traditional website design but I’ve been successful in all projects so far.</span>
-      </el-col>
-    </el-row>
+  <div>
+    <div class="about-page">
+      <el-row>
+        <el-col :span="24">
+          <span class="header">Hi! I’m Riny yadav. </span>
+          <span class="description" v-html="description"></span>
+          <el-row class="image-section">
+            <el-col :span="12"><img src="../assets/portrait/one.jpeg"></el-col>
+            <el-col :span="12"><img src="../assets/portrait/two.jpeg"></el-col>
+          </el-row>
+        </el-col>
+      </el-row>
+      <div class="promises-header">Regardless of project size, you will always get:</div>
+      <el-row>
+        <el-col :span="12" class="promises">
+          <img src="../assets/icons/clock.svg">
+          <span class="promise-subheader">On-time delivery</span>
+          <span class="promise-description">I know time is money so I don’t want to waste yours. Or mine. So I guarantee that I will always deliver what you pay for as promised.</span>
+        </el-col>
+        <el-col :span="12" class="promises">
+          <img src="../assets/icons/quality.svg">
+          <span class="promise-subheader">Quality</span>
+          <span class="promise-description">I don’t want to put my name on something subpar so my first concern is always quality. No matter what, you will love the end result.</span>
+        </el-col>
+        <el-col :span="12" class="promises">
+          <img src="../assets/icons/rocket.svg">
+          <span class="promise-subheader">I can design and build a responsive and accessible  website</span>
+          <span class="promise-description">My goal is to build accessible and responsive user interfaces for the web and mobile, while preserving the best practices for proper user experience. </span>
+        </el-col>
+        <el-col :span="12" class="promises">
+          <img src="../assets/icons/phone.svg">
+          <span class="promise-subheader">I can design a mobile app for iOS and Android</span>
+          <span class="promise-description">I started designing mobile apps and I love it. It’s a different process compared to traditional website design but I’ve been successful in all projects so far.</span>
+        </el-col>
+      </el-row>
+    </div>
     <FreelanceSection class="freelance-section"></FreelanceSection>
     <FooterSection></FooterSection>
   </div>
+
 </template>
 
 <script>
@@ -48,10 +51,10 @@ export default {
     
   },
   setup() {
-    const description = `An illustrator, designer who brings inclusive, minimal and future oriented user experience to people in need.
-    I came to graphic design from a background in human resources, which gives me a strong background in communication, It was the best decision I ever made because it showed me what I wanted to do for the rest of my life.
-    I was driven to designing because it felt exciting and rewarding to learn about people’s goals and desires, help them solve their problems and make their lives easier.
-    I help businesses all around the world by designing websites and mobile apps.
+    const description = `An illustrator, designer who brings inclusive, minimal and future oriented user experience to people in need.<br><br>
+    I came to graphic design from a background in human resources, which gives me a strong background in communication, It was the best decision I ever made because it showed me what I wanted to do for the rest of my life.<br><br>
+    I was driven to designing because it felt exciting and rewarding to learn about people’s goals and desires, help them solve their problems and make their lives easier.<br><br>
+    I help businesses all around the world by designing websites and mobile apps.<br><br>
     Right now I’m based in Noida.`;
     return {
       description
@@ -82,11 +85,16 @@ export default {
 
 .header {
   display: block;
-  color: var(--Black, #261F22);
+  background-image: linear-gradient(to right, #FE572E 0%, #FC3A79 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+
   font-family: "Brandon";
   font-size: 84px;
   font-style: normal;
-  font-weight: 450;
+  font-weight: 700;
   line-height: 112px;
   margin-bottom: 40px;
 }
@@ -107,7 +115,7 @@ export default {
     img {
       width: 100%;
       height: 600px;
-      object-fit: cover;
+      object-fit: contain;
       margin-bottom: 40px;
     }
 } 
@@ -125,6 +133,7 @@ export default {
 
 .promises {
   padding: 0 40px 40px 0;
+  margin-bottom: 50px;
   img {
     width: 64px;
     height: 64px;
@@ -143,7 +152,7 @@ export default {
   .promise-description {
     color: var(--black75, rgba(38, 31, 34, 0.75));
     font-family: Bricolage;
-    font-size: 18px;
+    font-size: 17px;
     font-style: normal;
     font-weight: 400;
     line-height: 30px;

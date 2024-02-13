@@ -1,6 +1,6 @@
 <template>
   <div class="portfolio-page">
-      My work
+      Coming soon...
   </div>
 </template>
 
@@ -8,7 +8,6 @@
 export default {
   name: "PortfolioPage",
   mounted() {
-    console.log('PortfolioPage mounted')
   },
   components: {
   },

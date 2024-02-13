@@ -1,16 +1,14 @@
 <template>
-    <div class="footer-section">
-        <div class="social-section">
-            <a href="https://www.behance.net/rinyyadav" target="_blank"><img src="../../assets/icons/dribble-icon.png" alt="Dribble Icon" class="social-icon" /></a>
+    <el-row class="footer-section">
+        <el-col :span="12" class="policy-and-terms-section">
+            © 2024 Riny Yadav. All rights reserved.
+        </el-col>
+        <el-col :span="12" class="social-section">
+            <a href="https://www.behance.net/rinyyadav" target="_blank"><img src="../../assets/icons/dribble-icon.png" alt="Dribble Icon" class="dribble-icon social-icon" /></a>
             <a href="https://www.behance.net/rinyyadav" target="_blank"><img src="../../assets/icons/linkedin-icon.png" alt="LinkedIn Icon" class="social-icon" /></a>
             <a href="https://www.behance.net/rinyyadav" target="_blank"><img src="../../assets/icons/behance-icon.png" alt="Behance Icon" class="social-icon" /></a>
-        </div>
-        <el-row class="policy-and-terms-section">
-            <el-col :span="24" class="rights">
-                © 2024 Riny Yadav. All rights reserved.
-            </el-col>
-        </el-row>
-    </div>
+        </el-col>
+    </el-row>
 </template>
 <script>
     export default {
@@ -19,56 +17,39 @@
 </script>
 <style scoped>
 .footer-section {
-    padding-top: 80px;
+    width: 100%;
+    min-height: 80px;
     height: auto;
-    max-height: 600px;
-    min-height: 300px;
+    max-height: 200px;
     background: transparent;
     backdrop-filter: blur(2px);
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     align-self: center;
     border-top: 1px solid #261F221A;
 }
 .policy-and-terms-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: auto;
-    min-width: 300px;
-    margin: 10px 0 35px 0;
-
-    color: var(--Black, #261F22);
-    font-family: "Brandon";
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 24px;
-}
-.rights {
     cursor: pointer;
     color: var(--black75, rgba(38, 31, 34, 0.75));
     font-family: "Brandon";
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
-    line-height: 24px;
-    margin-top: 20px;
+    line-height: 80px;
 }
 .social-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: auto;
-    min-width: 300px;
     a {
-        margin: 0 15px;
+        margin: 0 10px;
     }
     img {
         width: auto;
-        height: 30px;
+        height: 20px;
+    }
+    .dribble-icon {
+        height: 25px !important;
+        margin-bottom: -4px;
     }
 }
 </style>

@@ -44,7 +44,7 @@ html {
 }
 body {
   margin: 0;
-  background: linear-gradient(to bottom, #ffffff 0%, #FE572E 100%);
+  background: linear-gradient(to bottom, #ffffff 0%, #FF745B 100%);
   background-position: 0 0;
   background-size: 200% 100%;
   animation: background-move 10s linear infinite;

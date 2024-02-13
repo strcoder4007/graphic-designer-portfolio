@@ -2,7 +2,7 @@
   <header class="navbar">
     <div class="navbar-container">
       <div class="brand-section">
-        <img src="../assets/icons/brand-icon.png" alt="Brand Icon" class="brand-icon" @click="toggleMenu" />
+        <img src="../assets/icons/brand-icon.png" alt="Brand Icon" class="brand-icon" @click="handleSelect('Home')" />
       </div>
       <div class="navbar-menu">
         <button class="menu-toggle" @click="toggleMenu">
@@ -38,12 +38,10 @@ export default {
     const isMenuOpen = ref(false);
 
     onMounted(() => {
-      // Set active index based on current route
-      // activeIndex.value = router.currentRoute.value.name;
     })
 
     const handleSelect = (name) => {
-      activeIndex.value = name;
+      activeIndex.value = name.toLowerCase();
       isMenuOpen.value = false; // Close menu after selection
       // Handle navigation or route changes based on selected item
       router.push({name});
@@ -76,11 +74,11 @@ export default {
   .riny-designs {
     color: #261F22;
     font-family: Brandon, sans-serif;
-    font-size: 38px;
+    font-size: 40px;
     font-style: normal;
-    font-weight: 700;
+    font-weight: 900 !important;
     line-height: 42px;
-    letter-spacing: 5.7px;
+    letter-spacing: 2px;
     text-transform: uppercase;
     margin-top: 0px !important;
   }
@@ -134,6 +132,11 @@ export default {
       height: auto;
       cursor: pointer;
       margin-left: 15px;
+
+      &:first-child {
+        width: 20px;
+        margin-bottom: -3px;
+      }
 
       &:last-child {
         width: 20px;

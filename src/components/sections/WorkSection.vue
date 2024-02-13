@@ -3,7 +3,7 @@
     <el-row>
       <el-col class="work-section">
         <div class="greetings">My work</div>
-        <div class="description">I specialize in website design, but I’ve also designed successful iOS and Android apps.</div>
+        <div class="description">I specialize in website design,<br>but I’ve also designed successful iOS and Android apps.</div>
 
       </el-col>
     </el-row>
@@ -55,6 +55,7 @@ export default {
     font-style: normal;
     font-weight: 400;
     line-height: 30px;
+    margin-top: 20px;
   }
 
 }
