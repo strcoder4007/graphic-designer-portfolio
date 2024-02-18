@@ -13,7 +13,7 @@
         <ul class="menu-items" :class="{ 'is-open': isMenuOpen }">
           <li class="menu-item" :class="{ 'active': activeIndex === 'home' }" @click="handleSelect('Home')">Home</li>
           <li class="menu-item" :class="{ 'active': activeIndex === 'portfolio' }" @click="handleSelect('Portfolio')">Portfolio</li>
-          <li class="menu-item riny-designs" @click="handleSelect('Home')">Riny Designs</li>
+          <li v-if="!isMobile" class="menu-item riny-designs" @click="handleSelect('Home')">Riny Designs</li>
           <li class="menu-item" :class="{ 'active': activeIndex === 'about' }" @click="handleSelect('About')">About me</li>
           <li class="menu-item" :class="{ 'active': activeIndex === 'contact' }" @click="handleSelect('Contact')">Contact</li>
         </ul>
@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import { onMounted, ref } from 'vue';
+import { onMounted, ref, computed } from 'vue';
 import { useRouter } from 'vue-router'
 
 export default {
@@ -51,9 +51,14 @@ export default {
       isMenuOpen.value = !isMenuOpen.value;
     };
 
+    const isMobile = computed(() => {
+      return window.innerWidth <= 768;
+    })
+
     return {
       activeIndex,
       handleSelect,
+      isMobile,
       toggleMenu,
       isMenuOpen
     };
@@ -62,7 +67,80 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+button.menu-toggle {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.menu-toggle span.icon-bar {
+  display: block;
+  width: 20px;
+  height: 3px;
+  margin: 5px 0;
+  background-color: #333;
+  transition: 0.3s;
+}
+
+/* Desktop styles (screens wider than 768px) */
+@media only screen and (min-width: 768px) {
+  .menu-toggle {
+    display: none; /* Hide menu toggle button on desktop */
+  }
+}
+
+/* Mobile styles (screens below 768px) */
+@media only screen and (max-width: 767px) {
+
+  .navbar-menu {
+    display: none;
+    padding: 0;
+
+    &.is-open {
+      display: block;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: #FBE9E9;
+      padding: 1rem;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+      opacity: 1;
+      transform: translateY(0);
+      transition: all 0.3s ease-in-out;
+    }
+  }
+
+  .menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 100; /* Ensure button is on top */
+  }
+
+  .menu-items {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transform: translateX(-100%); /* Hide menu by default */
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .menu-items.is-open {
+    transform: translateX(0); /* Show menu when isMenuOpen becomes true */
+  }
+}
+
 .navbar {
+  width: 100%;
   height: 100px;
   padding: 0 2rem;
   background-color: #FBE9E9;
@@ -81,35 +159,6 @@ export default {
     letter-spacing: 2px;
     text-transform: uppercase;
     margin-top: 0px !important;
-  }
-
-  .menu-toggle {
-    display: none;
-  }
-
-  @media (max-width: 768px) {
-    .navbar-menu {
-      display: none;
-      padding: 0;
-
-      &.is-open {
-        display: block;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background-color: #FBE9E9;
-        padding: 1rem;
-        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-        opacity: 1;
-        transform: translateY(0);
-        transition: all 0.3s ease-in-out;
-      }
-    }
-
-    .menu-toggle {
-      display: block;
-    }
   }
 
   .navbar-container {
