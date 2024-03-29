@@ -69,6 +69,7 @@
     border-radius: 8px;
     background: var(--Accent, #FC3A79);
     color: #FFF;
+    letter-spacing: 2px;
 
     font-family: Brandon;
     font-size: 20px;
@@ -111,5 +112,50 @@
     background: var(--brand-gradient, linear-gradient(90deg, #FE572E 0%, #FC3A79 100%));
     box-shadow: 0px 2.767px 2.214px 0px rgba(0, 0, 0, 0.02), 0px 6.65px 5.32px 0px rgba(0, 0, 0, 0.03), 0px 12.522px 10.017px 0px rgba(0, 0, 0, 0.04), 0px 22.336px 17.869px 0px rgba(0, 0, 0, 0.04);
 }
+@media (max-width: 768px) {
+    .freelance-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 40px;
+    }
+    .title {
+        font-size: 30px;
+        line-height: 30px;
+    }
+    .subtitle {
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px;
+        text-align: left;
+    }
+    .contact-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 30px 0;
+    }
+    .email-btn {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+    .phone-btn {
+        padding: 20px;
+        margin: 0;
+    }
+    .connect {
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 25px;
 
+        margin-top: 20px;
+        margin-bottom: 60px;
+        padding: 12px 40px;
+        align-items: center;
+    }
+}
 </style>

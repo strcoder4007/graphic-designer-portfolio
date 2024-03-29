@@ -57,6 +57,20 @@ export default {
     line-height: 30px;
     margin-top: 20px;
   }
+}
+@media (max-width: 768px) {
+  .work-section {
 
+    .greetings {
+      font-size: 40px;
+      font-weight: 700;
+    }
+
+    .description {
+      padding: 0 20px;
+      font-size: 15px;
+      line-height: 20px;
+    }
+  }
 }
 </style>

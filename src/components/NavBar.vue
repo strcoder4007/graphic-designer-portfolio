@@ -77,66 +77,11 @@ button.menu-toggle {
 
 .menu-toggle span.icon-bar {
   display: block;
-  width: 20px;
-  height: 3px;
-  margin: 5px 0;
+  width: 15px;
+  height: 1px;
+  margin: 1.5px 0;
   background-color: #333;
   transition: 0.3s;
-}
-
-/* Desktop styles (screens wider than 768px) */
-@media only screen and (min-width: 768px) {
-  .menu-toggle {
-    display: none; /* Hide menu toggle button on desktop */
-  }
-}
-
-/* Mobile styles (screens below 768px) */
-@media only screen and (max-width: 767px) {
-
-  .navbar-menu {
-    display: none;
-    padding: 0;
-
-    &.is-open {
-      display: block;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      background-color: #FBE9E9;
-      padding: 1rem;
-      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-      opacity: 1;
-      transform: translateY(0);
-      transition: all 0.3s ease-in-out;
-    }
-  }
-
-  .menu-toggle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    z-index: 100; /* Ensure button is on top */
-  }
-
-  .menu-items {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    transform: translateX(-100%); /* Hide menu by default */
-    transition: transform 0.3s ease-in-out;
-  }
-
-  .menu-items.is-open {
-    transform: translateX(0); /* Show menu when isMenuOpen becomes true */
-  }
 }
 
 .navbar {
@@ -222,6 +167,90 @@ button.menu-toggle {
         }
       }
     }
+  }
+}
+
+
+/* Desktop styles (screens wider than 768px) */
+@media only screen and (min-width: 768px) {
+  .menu-toggle {
+    display: none; /* Hide menu toggle button on desktop */
+  }
+}
+
+/* Mobile styles (screens below 768px) */
+@media only screen and (max-width: 767px) {
+
+  .social-section {
+    display: none; /* Hide social icons on mobile */
+  }
+
+  .navbar-menu {
+    display: none;
+    padding: 0;
+
+    &.is-open {
+      display: block;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: #FBE9E9;
+      padding: 1rem;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+      opacity: 1;
+      transform: translateY(0);
+      transition: all 0.3s ease-in-out;
+    }
+  }
+
+  .menu-toggle {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    z-index: 100; /* Ensure button is on top */
+  }
+
+  .menu-items {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-around;
+
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 90vw;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+
+    .menu-item {
+      list-style: none;
+      font-weight: bold;
+      text-decoration: none;
+      cursor: pointer;
+      margin-top: 10px;
+
+      &.active::after {
+        content: '';
+        display: block;
+        width: 5px;
+        height: 5px;
+        background: linear-gradient(90deg, #FE572E 0%, #FC3A79 100%);
+        border-radius: 50%;
+        margin: 0 auto;
+        margin-top: 5px;
+      }
+    }
+  }
+
+  .menu-items.is-open {
+    transform: translateX(0); /* Show menu when isMenuOpen becomes true */
   }
 }
 </style>
