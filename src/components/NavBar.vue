@@ -140,7 +140,7 @@ button.menu-toggle {
 }
 
 .navbar {
-  width: 100%;
+  width: calc(100% - 4rem);
   height: 100px;
   padding: 0 2rem;
   background-color: #FBE9E9;

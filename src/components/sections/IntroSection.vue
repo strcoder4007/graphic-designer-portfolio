@@ -3,7 +3,7 @@
     <el-row>
       <el-col class="intro-section">
         <div class="greetings">Hey there, I'm Riny</div>
-        <div class="profile">UI/UX Designer</div>
+        <div class="profile">UI/UX<br>Designer</div>
         <div class="description">I help business grow by crafting amazing web experiences. If you’re looking for a designer that likes to get stuff done, let’s talk.</div>
 
         <div class="resume-container">
@@ -111,8 +111,49 @@ export default {
       margin-left: 15px;
     }
   }
-  @media (max-width: 768px) {
+}
+@media (max-width: 768px) {
+  .intro-section {
+    height: calc(100vh - 100px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
+    .greetings {
+      font-weight: 400;
+      font-size: 40px;
+      line-height: 40px;
+      margin-bottom: 20px;
+    }
+    .profile {
+      color: var(--Black, #261F22);
+      text-align: center;
+      font-family: Bricolage;
+      font-size: 60px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 60px;
+      letter-spacing: -3.57px;
+    }
+
+    .description {
+      font-size: 15px;
+      line-height: 20px;
+      padding: 0 20px;
+      margin-top: 20px;
+    }
+
+    .action-btn {
+      font-size: 15px;
+      line-height: 20px;
+      padding: 20px 25px;
+      img {
+        width: 15px;
+        height: 15px;
+        margin-left: 10px;
+      }
+    }
   }
 }
 </style>
