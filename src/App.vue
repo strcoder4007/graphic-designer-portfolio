@@ -68,4 +68,8 @@ input:focus {
   border-color: #f00; /* Change border color on focus */
   transition: border-color 0.2s ease-in-out;
 }
+
+.el-message__content {
+  font-family: Bricolage;
+}
 </style>

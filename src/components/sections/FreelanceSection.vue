@@ -7,15 +7,31 @@
             </el-col>
         </el-row>
         <div class="contact-container">
-            <el-button class="email-btn">workwithriny@gmail.com</el-button>
-            <el-button class="phone-btn">+(91) 6393103784</el-button>
+            <el-button class="email-btn" @click="copyToClipboard('workwithriny@gmail.com', 'Email')">workwithriny@gmail.com</el-button>
+            <el-button class="phone-btn" @click="copyToClipboard('+916393103784', 'Phone Number')">+(91) 6393103784</el-button>
         </div>
-        <button class="connect">Got a project in mind? Let’s talk!</button>
+        <button class="connect" @click="sendMail()">Got a project in mind? Let’s talk!</button>
     </div>
 </template>
 <script>
     export default {
         name: "FreelanceSection",
+        methods: {
+            copyToClipboard(text, textType) {
+                navigator.permissions.query({name: "clipboard-write"}).then(result => {
+                    if (result.state == "granted" || result.state == "prompt") {
+                        navigator.clipboard.writeText(text)
+                            .then(() => this.$message({ message: textType + ' Copied', type: 'success'}))
+                            .catch(() => console.log('failure'))
+                    }
+                });
+            },
+            sendMail() {
+                let emailTo = 'workwithriny@gmail.com'
+                let emailString = 'mailto:' + emailTo
+                window.location.href = emailString
+            }
+        }
     };
 </script>
 <style scoped>

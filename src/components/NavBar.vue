@@ -210,7 +210,7 @@ button.menu-toggle {
     flex-direction: column;
     justify-content: center;
     position: absolute;
-    top: 30px;
+    top: 40px;
     right: 30px;
     z-index: 100; /* Ensure button is on top */
   }
