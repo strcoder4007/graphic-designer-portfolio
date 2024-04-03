@@ -77,9 +77,9 @@ button.menu-toggle {
 
 .menu-toggle span.icon-bar {
   display: block;
-  width: 15px;
-  height: 1px;
-  margin: 1.5px 0;
+  width: 20px;
+  height: 2px;
+  margin: 2px 0;
   background-color: #333;
   transition: 0.3s;
 }
@@ -217,17 +217,23 @@ button.menu-toggle {
 
   .menu-items {
     display: flex;
-    flex-grow: 1;
-    justify-content: space-around;
+    justify-content: center !important;
+    flex-direction: column;
+    gap: 0px;
+    padding: 0;
+    margin: 0;
 
     position: absolute;
-    top: 40px;
+    height: 400px;
+    top: 85px;
     left: 0;
-    width: 90vw;
+    z-index: 10;
+    width: 100vw;
+
     background-color: #fff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    transform: translateX(-100%);
-    transition: transform 0.3s ease-in-out;
+    transform: translateY(-200%);
+    transition: transform 0.6s ease-in-out;
 
     .menu-item {
       list-style: none;

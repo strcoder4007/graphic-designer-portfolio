@@ -6,8 +6,8 @@
           <span class="header">Hi! I’m Riny yadav. </span>
           <span class="description" v-html="description"></span>
           <el-row class="image-section">
-            <el-col :md="12"><img src="../assets/portrait/one.jpeg"></el-col>
-            <el-col :md="12"><img src="../assets/portrait/two.jpeg"></el-col>
+            <el-col :md="12"><img src="../assets/portrait/one.png"></el-col>
+            <el-col :md="12"><img src="../assets/portrait/two.png"></el-col>
           </el-row>
         </el-col>
       </el-row>
@@ -117,7 +117,7 @@ export default {
 .image-section {
     img {
       width: 100%;
-      height: 600px;
+      height: auto;
       object-fit: contain;
       margin-bottom: 40px;
     }
@@ -131,7 +131,7 @@ export default {
   font-weight: 330;
   line-height: 72px; 
   letter-spacing: -1.77px;
-  margin: 150px 0 100px 0;
+  margin: 10px 0 100px 0;
 }
 
 .promises {
@@ -210,7 +210,7 @@ export default {
         width: 100%;
         height: auto;
         object-fit: contain;
-        margin-bottom: 40px;
+        margin-bottom: 10px;
       }
   } 
 
