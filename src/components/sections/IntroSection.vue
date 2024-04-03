@@ -11,7 +11,7 @@
             See my work
             <img src="../../assets/icons/arrow-down.png" alt="Arrow Right Icon" />
           </el-button>
-          <el-button class="action-btn">
+          <el-button class="action-btn" @click="download()">
             Download CV
             <img src="../../assets/icons/download.png" alt="Arrow Right Icon" />
           </el-button>
@@ -33,8 +33,13 @@ export default {
   methods: {
     scrollToWork() {
       document.getElementById('work-section').scrollIntoView()
+    },
+    download() {
+      const link = document.createElement('a')
+      link.href = 'https://strcoder4007.github.io/graphic-designer-portfolio/resume.pdf'
+      link.download = 'Riny_Resume.pdf'
+      link.click();
     }
-  
   }
 };
 </script>

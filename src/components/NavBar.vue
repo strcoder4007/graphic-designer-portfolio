@@ -219,19 +219,20 @@ button.menu-toggle {
     display: flex;
     justify-content: center !important;
     flex-direction: column;
+    align-items: center !important;
     gap: 0px;
     padding: 0;
     margin: 0;
 
     position: absolute;
-    height: 400px;
+    height: 350px;
     top: 85px;
     left: 0;
     z-index: 10;
     width: 100vw;
 
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    background-color: #FBE9E9;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.3);
     transform: translateY(-200%);
     transition: transform 0.6s ease-in-out;
 
@@ -240,11 +241,22 @@ button.menu-toggle {
       font-weight: bold;
       text-decoration: none;
       cursor: pointer;
-      margin-top: 10px;
+
+      font-family: Brandon, sans-serif;
+
+      border-radius: 4px;
+      color: #FFFFFF;
+      margin-top: -40px;
+      margin-bottom: 15px;
+      line-height: 50px;
+      height: 50px;
+      width: 200px;
+      background: linear-gradient(90deg, #FE572E 0%, #FC3A79 100%);
+
 
       &.active::after {
         content: '';
-        display: block;
+        display: none !important;
         width: 5px;
         height: 5px;
         background: linear-gradient(90deg, #FE572E 0%, #FC3A79 100%);

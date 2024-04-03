@@ -97,6 +97,9 @@
                     object-fit: contain;
                     margin-bottom: 10px;
                 }
+                span {
+                    font-weight: 600;
+                }
             }
         }
 

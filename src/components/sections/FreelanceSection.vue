@@ -87,10 +87,10 @@
     color: #FFF;
     letter-spacing: 2px;
 
-    font-family: Brandon;
-    font-size: 20px;
+    font-family:'Courier New', Courier, monospace;
+    font-size: 15px;
     font-style: normal;
-    font-weight: 450;
+    font-weight: 600;
     line-height: 24px;
 }
 .phone-btn {
