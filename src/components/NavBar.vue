@@ -89,6 +89,8 @@ button.menu-toggle {
   height: 100px;
   padding: 0 2rem;
   background-color: #FBE9E9;
+  z-index: 100;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -212,7 +214,7 @@ button.menu-toggle {
     position: absolute;
     top: 40px;
     right: 30px;
-    z-index: 100; /* Ensure button is on top */
+    z-index: 100;
   }
 
   .menu-items {

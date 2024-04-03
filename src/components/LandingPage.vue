@@ -2,6 +2,7 @@
   <div>
     <IntroSection></IntroSection>
     <WorkSection></WorkSection>
+    <ToolsSection></ToolsSection>
     <FreelanceSection></FreelanceSection>
     <span class="designed-by-me">
       <img src="../assets/icons/heart.png" alt="Heart Icon" />
@@ -16,6 +17,7 @@ import IntroSection from "./sections/IntroSection.vue";
 import WorkSection from "./sections/WorkSection.vue";
 import FreelanceSection from "./sections/FreelanceSection.vue";
 import FooterSection from "./sections/FooterSection.vue";
+import ToolsSection from "./sections/ToolsSection.vue";
 export default {
   name: "LandingPage",
   props: {
@@ -25,7 +27,8 @@ export default {
     IntroSection,
     WorkSection,
     FreelanceSection,
-    FooterSection
+    FooterSection,
+    ToolsSection
   },
 };
 </script>

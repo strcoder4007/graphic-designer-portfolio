@@ -23,7 +23,7 @@
     height: auto;
     min-height: 300px;
     width: 100vw;
-    background: #ffffff;
+    background: linear-gradient(180deg, #ffffff 0%, #FF745B 100%);
     backdrop-filter: blur(2px);
     display: flex;
     flex-direction: column;
@@ -59,6 +59,10 @@
         margin: 50px 0;
         a {
             margin: 0 15px;
+        }
+        img {
+            width: 50px;
+            height: auto;
         }
     }
 }
