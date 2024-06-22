@@ -4,20 +4,19 @@
       <el-col class="work-section">
         <div class="greetings">My work</div>
         <div class="description">I specialize in website design,<br>but I’ve also designed successful iOS and Android apps.</div>
-
+        <LandingComponent></LandingComponent>
       </el-col>
     </el-row>
   </div>
 </template>
 
 <script>
-// import { ref } from 'vue';
+import LandingComponent from "./project/LandingComponent.vue"
 
 export default {
-  setup() {
-
-    return {
-    };
+  name: "WorkSection",
+  components: {
+    LandingComponent
   },
 };
 </script>
