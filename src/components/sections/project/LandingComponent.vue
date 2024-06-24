@@ -1,22 +1,7 @@
 <template>
   <div class="project-landing-page">
     <el-row>
-      <el-col :span="12" v-for="project in projectList" :key="project.id" class="project-container">
-        <!-- <div class="image-container">
-          <img v-if="project.image === 'dashboard_design'" src="../../../assets/projects/dashboard_design.png" />
-          <img v-if="project.image === 'illustration'" src="../../../assets/projects/illustration.png" />
-          <img v-if="project.image === 'website_design'" src="../../../assets/projects/website_design.png" />
-          <img v-if="project.image === 'mobile_app_design'" src="../../../assets/projects/mobile_app_design.png" />
-          <img v-if="project.image === 'ui_ux_design'" src="../../../assets/projects/ui_ux_design.png" />
-        </div>
-        <div class="project-name">{{ project.name }}</div>
-        <div class="project-description">{{ project.description }}</div>
-        <div class="links-container">
-          <div class="live">Live</div>
-          <div class="code">Code</div>
-        </div> -->
-
-
+      <el-col :md="12" :xl="8" v-for="project in projectList" :key="project.id" class="project-container">
         <div class="cvfy-container">
           <div class="cvfy-card">
             <div class="card-header">
@@ -25,7 +10,7 @@
                 <span class="control yellow"></span>
                 <span class="control green"></span>
               </div>
-              <h1 class="app-title">{{ project.name }}</h1>
+              <span class="app-title">{{ project.name }}</span>
             </div>
             <div class="card-body image-container">
               <img v-if="project.image === 'dashboard_design'" src="../../../assets/projects/dashboard_design.png" />
@@ -40,15 +25,12 @@
             {{ project.description }}
           </div>
           <div class="links-container">
-            <div class="behance">Behance <img src="../../../assets/icons/arrow-right.png" alt="Arrow Right Icon" /></div>
-            <div class="live">Live <img src="../../../assets/icons/arrow-right.png" alt="Arrow Right Icon" /></div>
-            <div class="code">Code <img src="../../../assets/icons/arrow-right.png" alt="Arrow Right Icon" /></div>
+            <div class="figma" @click="goToLink('figma')">Figma <img src="../../../assets/icons/arrow-right.png" alt="Arrow Right Icon" /></div>
+            <!-- <div class="behance" @click="goToLink('behance')">Behance <img src="../../../assets/icons/arrow-right.png" alt="Arrow Right Icon" /></div>
+            <div class="live" @click="goToLink('live')">Live <img src="../../../assets/icons/arrow-right.png" alt="Arrow Right Icon" /></div>
+            <div class="code" @click="goToLink('code')">Code <img src="../../../assets/icons/arrow-right.png" alt="Arrow Right Icon" /></div> -->
           </div>
         </div>
-
-
-
-
       </el-col>
     </el-row>
   </div>
@@ -57,6 +39,16 @@
 <script>
 export default {
   name: "ProjectLandingPage",
+
+  setup() {
+    const goToLink = (name) => {
+      if (name === 'figma')
+        window.open('https://www.figma.com/design/hldHS5PGFtbHdixRlBe6YP/New-PORTFOLIO?node-id=120-112&t=S4MDqijKWPgN5Gf0-0', '_blank');
+    }
+    return {
+      goToLink
+    }
+  },
   data() {
     return {
       projectList: [
@@ -103,7 +95,7 @@ export default {
 
 <style lang="scss" scoped>
 .project-landing-page {
-  margin: 80px auto;
+  margin: 80px;
 }
 .image-container {
     width: 400px;
@@ -142,7 +134,7 @@ export default {
   align-items: center;
   padding: 10px 20px 10px 10px;
   border-bottom: 1px solid #ebeef5;
-  height: 10px;
+  height: 5px;
 }
 
 .window-controls {
@@ -161,8 +153,9 @@ export default {
 .control.green { background-color: #cccccc; }
 
 .app-title {
-  font-size: 15px;
+  font-size: 13px;
   margin: 0;
+  font-weight: 500;
 }
 
 
@@ -185,7 +178,7 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content: start;
-  .live, .code, .behance {
+  .live, .code, .behance, .figma {
     font-size: 18px;
     font-weight: 500;
     font-family: 'Brandon';
@@ -197,12 +190,14 @@ export default {
       margin-left: 2px;
     }
   }
-  .live:hover, .code:hover, .behance:hover {
+  .live:hover, .code:hover, .behance:hover, .figma:hover {
     text-decoration: underline;
   }
 }
 
 @media (max-width: 768px) {
-
+  .project-landing-page {
+    margin: 60px 5px;
+  }
 }
 </style>

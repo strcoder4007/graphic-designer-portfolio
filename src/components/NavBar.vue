@@ -13,7 +13,7 @@
         <ul class="menu-items" :class="{ 'is-open': isMenuOpen }">
           <li class="menu-item" :class="{ 'active': activeIndex === 'home' }" @click="handleSelect('Home')">Home</li>
           <li class="menu-item" :class="{ 'active': activeIndex === 'work' }" @click="handleSelect('work')">Work</li>
-          <li v-if="!isMobile" class="menu-item riny-designs" @click="handleSelect('Home')">Riny Designs</li>
+          <!-- <li v-if="!isMobile" class="menu-item riny-designs" @click="handleSelect('Home')">Riny Designs</li> -->
           <li class="menu-item" :class="{ 'active': activeIndex === 'about' }" @click="handleSelect('About')">About me</li>
           <li class="menu-item" :class="{ 'active': activeIndex === 'contact' }" @click="handleSelect('Contact')">Contact</li>
         </ul>

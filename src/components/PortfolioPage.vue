@@ -37,8 +37,13 @@ export default {
   font-size: 59px;
   font-style: normal;
   font-weight: 700;
-  line-height: 72px; /* 122.034% */
+  line-height: 80px;
   letter-spacing: -1.77px;
+  letter-spacing: .5px;
+  background: linear-gradient(to right, #FE572E, #FC3A79);
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
 }
 </style>
   
