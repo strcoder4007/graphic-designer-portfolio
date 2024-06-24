@@ -27,12 +27,22 @@
               </div>
               <h1 class="app-title">{{ project.name }}</h1>
             </div>
-            <div class="card-body">
-              <!-- Image -->
+            <div class="card-body image-container">
+              <img v-if="project.image === 'dashboard_design'" src="../../../assets/projects/dashboard_design.png" />
+              <img v-if="project.image === 'illustration'" src="../../../assets/projects/illustration.png" />
+              <img v-if="project.image === 'website_design'" src="../../../assets/projects/website_design.png" />
+              <img v-if="project.image === 'mobile_app_design'" src="../../../assets/projects/mobile_app_design.png" />
+              <img v-if="project.image === 'ui_ux_design'" src="../../../assets/projects/ui_ux_design.png" />
             </div>
           </div>
-          <div class="description">
+          <div class="project-name">{{  project.name }}</div>
+          <div class="project-description">
             {{ project.description }}
+          </div>
+          <div class="links-container">
+            <div class="behance">Behance <img src="../../../assets/icons/arrow-right.png" alt="Arrow Right Icon" /></div>
+            <div class="live">Live <img src="../../../assets/icons/arrow-right.png" alt="Arrow Right Icon" /></div>
+            <div class="code">Code <img src="../../../assets/icons/arrow-right.png" alt="Arrow Right Icon" /></div>
           </div>
         </div>
 
@@ -94,27 +104,21 @@ export default {
 <style lang="scss" scoped>
 .project-landing-page {
   margin: 80px auto;
-  .project-container {
-
-  }
 }
-// .image-container {
-//   width: 100%;
-//   max-width: 400px;
-//   height: 0;
-//   padding-bottom: 56.25%; 
-//   position: relative;
-//   overflow: hidden;
-//   background-color: lightblue;
-//   img {
-//     position: absolute;
-//     top: 0;
-//     left: 0;
-//     width: 100%;
-//     height: auto;
-//     object-fit: cover;
-//   }
-// } 
+.image-container {
+    width: 400px;
+    height: 250px;
+    background-color: #f0f0f0; 
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden; 
+}
+.image-container.centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 
 
@@ -129,6 +133,7 @@ export default {
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   margin-bottom: 40px;
+  cursor: pointer;
 }
 
 .card-header {
@@ -138,10 +143,6 @@ export default {
   padding: 10px 20px 10px 10px;
   border-bottom: 1px solid #ebeef5;
   height: 10px;
-}
-
-.card-body {
-  height: 200px;
 }
 
 .window-controls {
@@ -155,13 +156,50 @@ export default {
   border-radius: 50%;
 }
 
-.control.red { background-color: #ff5f56; }
-.control.yellow { background-color: #ffbd2e; }
-.control.green { background-color: #27c93f; }
+.control.red { background-color: #cccccc; }
+.control.yellow { background-color: #cccccc; }
+.control.green { background-color: #cccccc; }
 
 .app-title {
   font-size: 15px;
   margin: 0;
+}
+
+
+.project-name {
+  font-size: 25px;
+  font-weight: 600;
+  font-family: 'Brandon';
+  display: flex;
+}
+
+.project-description {
+  font-size: 15px;
+  font-family: 'Bricolage';
+  display: flex;
+  text-align: left;
+  margin: 10px 0;
+}
+
+.links-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  .live, .code, .behance {
+    font-size: 18px;
+    font-weight: 500;
+    font-family: 'Brandon';
+    margin-right: 30px;
+    cursor: pointer;
+    img {
+      height: 20px;
+      margin-bottom: -5px;
+      margin-left: 2px;
+    }
+  }
+  .live:hover, .code:hover, .behance:hover {
+    text-decoration: underline;
+  }
 }
 
 @media (max-width: 768px) {
