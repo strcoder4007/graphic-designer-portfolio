@@ -178,7 +178,7 @@ function navigate(name) {
   height: 18px;
   opacity: 0.88;
   transition: opacity 0.18s, transform 0.18s;
-}
+} 
 .navbar-social a[href*="dribbble"] img {
   width: 22px;
   height: 20px;
