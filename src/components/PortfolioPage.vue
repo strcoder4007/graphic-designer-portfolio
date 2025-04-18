@@ -27,7 +27,7 @@ export default {
   flex-direction: column;
   align-items: center;
   height: auto;
-  overflow: scroll;
+  overflow: visible;
   background-color: transparent;
 }
 .greetings {
@@ -46,4 +46,3 @@ export default {
   text-fill-color: transparent;
 }
 </style>
-  

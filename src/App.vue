@@ -10,7 +10,7 @@ export default {
   name: "App",
   components: {
     NavBar
-  },
+  }
 };
 </script>
 
@@ -27,6 +27,14 @@ export default {
 html {
   scroll-behavior: smooth;
   height: auto;
+  width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+/* Apply box-sizing globally for all elements */
+*, *::before, *::after {
+  box-sizing: inherit;
 }
 
 #app {
@@ -37,6 +45,9 @@ html {
   color: #2c3e50;
   opacity: 0; /* Start invisible */
   animation: fade-in 1s ease-in-out forwards;
+  width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
 }
 @keyframes fade-in {
   from { opacity: 0; }
@@ -44,14 +55,99 @@ html {
 }
 body {
   margin: 0;
-  background: linear-gradient(to bottom, #ffffff 0%, #FF745B 100%);
-  background-position: 0 0;
-  background-size: 200% 100%;
-  animation: background-move 10s linear infinite;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  /* Simple, creative linear gradient using accent shades */
+  background: linear-gradient(
+    120deg,
+    #ffe0e6 0%,
+    #fc3a79 60%,
+    #b82a5a 100%
+  );
+  position: relative;
 }
-@keyframes background-move {
-  from { background-position: 0 0; }
-  to { background-position: -200% 0; }
+body::before, body::after, body::blob1, body::blob2, body::blob3 {
+  content: "";
+  position: fixed;
+  z-index: -1;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.35;
+  pointer-events: none;
+  animation: blob-move-1 18s ease-in-out infinite alternate;
+  transition: background 0.5s, opacity 0.5s;
+}
+body::before {
+  width: 520px;
+  height: 520px;
+  left: -200px;
+  top: -140px;
+  background: radial-gradient(circle at 30% 30%, #ffe0e6 0%, #fc3a79 100%);
+  animation-name: blob-move-1;
+  animation-delay: 0s;
+}
+body::after {
+  width: 440px;
+  height: 440px;
+  right: -180px;
+  bottom: -120px;
+  background: radial-gradient(circle at 70% 70%, #fc3a79 0%, #b82a5a 100%);
+  animation-name: blob-move-2;
+  animation-delay: 6s;
+}
+body::blob1 {
+  width: 340px;
+  height: 340px;
+  left: 60vw;
+  top: 60vh;
+  background: radial-gradient(circle at 60% 60%, #ffe0e6 0%, #fc3a79 100%);
+  animation-name: blob-move-3;
+  animation-delay: 3s;
+}
+body::blob2 {
+  width: 300px;
+  height: 300px;
+  left: 40vw;
+  top: 10vh;
+  background: radial-gradient(circle at 40% 40%, #fc3a79 0%, #ffe0e6 100%);
+  animation-name: blob-move-4;
+  animation-delay: 9s;
+}
+body::blob3 {
+  width: 260px;
+  height: 260px;
+  right: 10vw;
+  top: 40vh;
+  background: radial-gradient(circle at 60% 60%, #b82a5a 0%, #ffe0e6 100%);
+  animation-name: blob-move-5;
+  animation-delay: 12s;
+}
+@keyframes blob-move-1 {
+  0% { transform: scale(1) translateY(0) translateX(0);}
+  50% { transform: scale(1.18) translateY(60px) translateX(40px);}
+  100% { transform: scale(1) translateY(-30px) translateX(-30px);}
+}
+@keyframes blob-move-2 {
+  0% { transform: scale(1) translateY(0) translateX(0);}
+  50% { transform: scale(1.12) translateY(-40px) translateX(-60px);}
+  100% { transform: scale(1) translateY(30px) translateX(30px);}
+}
+@keyframes blob-move-3 {
+  0% { transform: scale(1) translateY(0) translateX(0);}
+  50% { transform: scale(1.08) translateY(30px) translateX(-30px);}
+  100% { transform: scale(1) translateY(-20px) translateX(20px);}
+}
+@keyframes blob-move-4 {
+  0% { transform: scale(1) translateY(0) translateX(0);}
+  50% { transform: scale(1.15) translateY(-20px) translateX(20px);}
+  100% { transform: scale(1) translateY(20px) translateX(-20px);}
+}
+@keyframes blob-move-5 {
+  0% { transform: scale(1) translateY(0) translateX(0);}
+  50% { transform: scale(1.1) translateY(20px) translateX(-20px);}
+  100% { transform: scale(1) translateY(-20px) translateX(20px);}
 }
 button:hover {
   cursor: pointer;

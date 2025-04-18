@@ -1,10 +1,10 @@
 <template>
-  <header class="navbar">
+  <header class="navbar glassy-navbar">
     <div class="navbar-container">
       <div class="brand-section">
         <img src="../assets/icons/brand-icon.png" alt="Brand Icon" class="brand-icon" @click="handleSelect('Home')" />
       </div>
-      <div class="navbar-menu">
+      <nav class="navbar-menu">
         <button class="menu-toggle" @click="toggleMenu">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
@@ -13,11 +13,10 @@
         <ul class="menu-items" :class="{ 'is-open': isMenuOpen }">
           <li class="menu-item" :class="{ 'active': activeIndex === 'home' }" @click="handleSelect('Home')">Home</li>
           <li class="menu-item" :class="{ 'active': activeIndex === 'work' }" @click="handleSelect('work')">Work</li>
-          <!-- <li v-if="!isMobile" class="menu-item riny-designs" @click="handleSelect('Home')">Riny Designs</li> -->
           <li class="menu-item" :class="{ 'active': activeIndex === 'about' }" @click="handleSelect('About')">About me</li>
           <li class="menu-item" :class="{ 'active': activeIndex === 'contact' }" @click="handleSelect('Contact')">Contact</li>
         </ul>
-      </div>
+      </nav>
       <div class="social-section">
         <img src="../assets/icons/dribble-icon.png" alt="Dribble Icon" class="social-icon" />
         <img src="../assets/icons/linkedin-icon.png" alt="LinkedIn Icon" class="social-icon" />
@@ -37,13 +36,11 @@ export default {
     const activeIndex = ref('home');
     const isMenuOpen = ref(false);
 
-    onMounted(() => {
-    })
+    onMounted(() => {})
 
     const handleSelect = (name) => {
       activeIndex.value = name.toLowerCase();
-      isMenuOpen.value = false; // Close menu after selection
-      // Handle navigation or route changes based on selected item
+      isMenuOpen.value = false;
       router.push({name});
     };
 
@@ -66,211 +63,206 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
+.glassy-navbar {
+  width: 100%;
+  box-sizing: border-box;
+  height: 74px;
+  padding: 0 2.5rem;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background: rgba(255, 224, 230, 0.85);
+  backdrop-filter: blur(16px);
+  border-bottom: 1.5px solid #fc3a7933;
+  box-shadow: 0 4px 24px rgba(252, 58, 121, 0.08), 0 1.5px 6px rgba(0,0,0,0.07);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 74px;
+  gap: 0;
+}
+
+.brand-section {
+  display: flex;
+  align-items: center;
+  height: 74px;
+}
+.brand-icon {
+  width: 38px;
+  height: auto;
+  cursor: pointer;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(252, 58, 121, 0.10);
+  transition: box-shadow 0.2s;
+}
+.brand-icon:hover {
+  box-shadow: 0 4px 16px rgba(252, 58, 121, 0.18);
+}
+
+.social-section {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  height: 74px;
+}
+.social-icon {
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.18s, transform 0.18s;
+}
+.social-icon:hover {
+  opacity: 1;
+  transform: scale(1.12);
+}
+
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 74px;
+}
+
+.menu-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: none;
+  height: 74px;
+}
+
+.menu-item {
+  list-style: none;
+  font-family: Brandon, sans-serif;
+  font-weight: 500;
+  font-size: 1.08rem;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  cursor: pointer;
+  color: #261F22;
+  background: none;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 8px;
+  transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+  margin: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 74px;
+}
+.menu-item:hover, .menu-item.active {
+  background: linear-gradient(90deg, #FE572E 0%, #FC3A79 100%);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(252, 58, 121, 0.10);
+}
+.menu-item.active::after {
+  content: '';
+  display: block;
+  width: 18px;
+  height: 3px;
+  background: linear-gradient(90deg, #FE572E 0%, #FC3A79 100%);
+  border-radius: 2px;
+  margin: 6px auto 0 auto;
+}
 
 button.menu-toggle {
   background: none;
   border: none;
   padding: 0;
   cursor: pointer;
+  display: none;
 }
 
 .menu-toggle span.icon-bar {
   display: block;
-  width: 20px;
-  height: 2px;
-  margin: 2px 0;
-  background-color: #333;
+  width: 22px;
+  height: 3px;
+  margin: 3px 0;
+  background-color: #fc3a79;
+  border-radius: 2px;
   transition: 0.3s;
 }
 
-.navbar {
-  width: calc(100% - 4rem);
-  height: 100px;
-  padding: 0 2rem;
-  background-color: #FBE9E9;
-  z-index: 100;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-
-  .riny-designs {
-    color: #261F22;
-    font-family: Brandon, sans-serif;
-    font-size: 40px;
-    font-style: normal;
-    font-weight: 900 !important;
-    line-height: 42px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-top: 0px !important;
-  }
-
-  .navbar-container {
-    display: flex;
-    align-items: center;
-    width: 100%;
-
-    .brand-section,
-    .social-section {
-      width: auto;
-    }
-
-    .brand-icon {
-      width: 30px;
-      height: auto;
-      cursor: pointer;
-    }
-    .social-icon {
-      width: 15px;
-      height: auto;
-      cursor: pointer;
-      margin-left: 15px;
-
-      &:first-child {
-        width: 20px;
-        margin-bottom: -3px;
-      }
-
-      &:last-child {
-        width: 20px;
-      }
-    }
-
-    .navbar-menu {
-      display: flex;
-      flex-grow: 1;
-      padding: 0 150px;
-
-      .menu-items {
-        display: flex;
-        flex-grow: 1;
-        justify-content: space-between;
-
-        .menu-item {
-          list-style: none;
-          font-weight: bold;
-          text-decoration: none;
-          cursor: pointer;
-          margin-top: 10px;
-
-          &.active::after {
-            content: '';
-            display: block;
-            width: 5px;
-            height: 5px;
-            background: linear-gradient(90deg, #FE572E 0%, #FC3A79 100%);
-            border-radius: 50%;
-            margin: 0 auto;
-            margin-top: 5px;
-          }
-        }
-      }
-    }
-  }
-}
-
-
-/* Desktop styles (screens wider than 768px) */
-@media only screen and (min-width: 768px) {
+/* Desktop styles (screens wider than 900px) */
+@media only screen and (min-width: 900px) {
   .menu-toggle {
-    display: none; /* Hide menu toggle button on desktop */
+    display: none;
   }
 }
 
-/* Mobile styles (screens below 768px) */
-@media only screen and (max-width: 767px) {
-
-  .social-section {
-    display: none; /* Hide social icons on mobile */
-  }
-
+/* Mobile styles (screens below 900px) */
+@media only screen and (max-width: 899px) {
   .navbar-menu {
-    display: none;
-    padding: 0;
-
-    &.is-open {
-      display: block;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      background-color: #FBE9E9;
-      padding: 1rem;
-      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-      opacity: 1;
-      transform: translateY(0);
-      transition: all 0.3s ease-in-out;
-    }
+    flex-grow: 0;
+    height: 74px;
   }
-
   .menu-toggle {
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    position: absolute;
-    top: 40px;
-    right: 30px;
+    margin-left: 18px;
     z-index: 100;
+    background: none;
+    border: none;
+    height: 74px;
   }
-
   .menu-items {
-    display: flex;
-    justify-content: center !important;
-    flex-direction: column;
-    align-items: center !important;
-    gap: 0px;
-    padding: 0;
-    margin: 0;
-
+    display: none;
     position: absolute;
-    height: 350px;
-    top: 85px;
+    top: 74px;
+    right: 0;
     left: 0;
-    z-index: 10;
-    width: 100vw;
-
-    background-color: #FBE9E9;
-    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.3);
-    transform: translateY(-200%);
-    transition: transform 0.6s ease-in-out;
-
-    .menu-item {
-      list-style: none;
-      font-weight: bold;
-      text-decoration: none;
-      cursor: pointer;
-
-      font-family: Brandon, sans-serif;
-
-      border-radius: 4px;
-      color: #FFFFFF;
-      margin-top: -40px;
-      margin-bottom: 15px;
-      line-height: 50px;
-      height: 50px;
-      width: 200px;
-      background: linear-gradient(90deg, #FE572E 0%, #FC3A79 100%);
-
-
-      &.active::after {
-        content: '';
-        display: none !important;
-        width: 5px;
-        height: 5px;
-        background: linear-gradient(90deg, #FE572E 0%, #FC3A79 100%);
-        border-radius: 50%;
-        margin: 0 auto;
-        margin-top: 5px;
-      }
-    }
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    background: rgba(255, 224, 230, 0.98);
+    box-shadow: 0 4px 24px rgba(252, 58, 121, 0.10);
+    border-radius: 0 0 18px 18px;
+    padding: 18px 0 12px 0;
+    z-index: 999;
+    transition: all 0.3s;
   }
-
   .menu-items.is-open {
-    transform: translateX(0); /* Show menu when isMenuOpen becomes true */
+    display: flex;
+  }
+  .menu-item {
+    width: 100vw;
+    text-align: center;
+    font-size: 1.1rem;
+    padding: 18px 0;
+    border-radius: 0;
+    margin: 0;
+    background: none;
+    color: #261F22;
+    height: 54px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+  }
+  .menu-item:hover, .menu-item.active {
+    background: linear-gradient(90deg, #FE572E 0%, #FC3A79 100%);
+    color: #fff;
+  }
+  .social-section {
+    display: none;
   }
 }
 </style>

@@ -1,177 +1,232 @@
 <template>
-    <div class="freelance-section">
-        <el-row>
-            <el-col>
-                <span class="title">I’m currently available for freelance work.</span>
-                <span class="subtitle">If you’re looking for a designer and developer that likes to get stuff done, let’s talk.</span>
-            </el-col>
-        </el-row>
-        <div class="contact-container">
-            <el-button class="email-btn" @click="copyToClipboard('workwithriny@gmail.com', 'Email')">workwithriny@gmail.com</el-button>
-            <el-button class="phone-btn" @click="copyToClipboard('+916393103784', 'Phone Number')">+(91) 6393103784</el-button>
-        </div>
-        <button class="connect" @click="sendMail()">Got a project in mind? Let’s talk!</button>
+  <section class="freelance-section">
+    <div class="freelance-card fade-in">
+      <div class="freelance-accent"></div>
+      <h2 class="title">Let’s work together.</h2>
+      <p class="subtitle">
+        Open for freelance design projects.<br>
+        Simple, fast, and beautiful results—let’s connect!
+      </p>
+      <div class="contact-container">
+        <button class="contact-btn email-btn" @click="copyToClipboard('workwithriny@gmail.com', 'Email')">
+          <img src="../../assets/icons/quality.svg" alt="Email" class="contact-icon" />
+          Email me
+        </button>
+        <button class="contact-btn phone-btn" @click="copyToClipboard('+916393103784', 'Phone Number')">
+          <img src="../../assets/icons/phone.svg" alt="Phone" class="contact-icon" />
+          Call me
+        </button>
+      </div>
+      <button class="connect" @click="sendMail()">
+        <img src="../../assets/icons/rocket.svg" alt="Rocket" class="connect-icon" />
+        Start your project
+      </button>
     </div>
+  </section>
 </template>
+
 <script>
-    export default {
-        name: "FreelanceSection",
-        methods: {
-            copyToClipboard(text, textType) {
-                navigator.permissions.query({name: "clipboard-write"}).then(result => {
-                    if (result.state == "granted" || result.state == "prompt") {
-                        navigator.clipboard.writeText(text)
-                            .then(() => this.$message({ message: textType + ' Copied', type: 'success'}))
-                            .catch(() => console.log('failure'))
-                    }
-                });
-            },
-            sendMail() {
-                let emailTo = 'workwithriny@gmail.com'
-                let emailString = 'mailto:' + emailTo
-                window.location.href = emailString
-            }
+export default {
+  name: "FreelanceSection",
+  methods: {
+    copyToClipboard(text, textType) {
+      navigator.permissions.query({ name: "clipboard-write" }).then((result) => {
+        if (result.state == "granted" || result.state == "prompt") {
+          navigator.clipboard
+            .writeText(text)
+            .then(() => this.$message({ message: textType + " Copied", type: "success" }))
+            .catch(() => console.log("failure"));
         }
-    };
+      });
+    },
+    sendMail() {
+      let emailTo = "workwithriny@gmail.com";
+      let emailString = "mailto:" + emailTo;
+      window.location.href = emailString;
+    },
+  },
+};
 </script>
+
 <style scoped>
 .freelance-section {
-    height: auto;
-    max-height: 600px;
-    min-height: 300px;
-    background: transparent;
-    backdrop-filter: blur(2px);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: start;
-    padding: 100px 20vw;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 420px;
+  margin: 80px 0 60px 0;
+  position: relative;
+  z-index: 1;
 }
+
+.freelance-card {
+  position: relative;
+  background: rgba(255,255,255,0.55);
+  border-radius: 32px;
+  box-shadow: 0 8px 32px rgba(252, 58, 121, 0.10), 0 2px 12px rgba(0,0,0,0.08);
+  backdrop-filter: blur(16px);
+  padding: 56px 64px 48px 64px;
+  max-width: 900px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: visible;
+  animation: fadeUp 0.8s cubic-bezier(.4,2,.6,1) both;
+}
+
+.freelance-accent {
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 220px;
+  height: 90px;
+  background: linear-gradient(90deg, #FE572E 0%, #FC3A79 100%);
+  opacity: 0.15;
+  filter: blur(36px);
+  border-radius: 50%;
+  z-index: 0;
+  animation: accentFloat 5s ease-in-out infinite alternate;
+}
+
+@keyframes accentFloat {
+  0% { transform: translateX(-50%) scale(1) }
+  100% { transform: translateX(-50%) scale(1.12) }
+}
+
 .title {
-    display: block;
-    color: var(--Black, #261F22);
-    font-family: Brandon;
-    font-size: 36px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 48px;
-    text-align: left;
-    margin-bottom: 20px;
+  font-family: Brandon, sans-serif;
+  font-size: 2.5rem;
+  font-weight: 500;
+  color: #261F22;
+  margin-bottom: 12px;
+  letter-spacing: 0.5px;
+  text-align: center;
+  z-index: 1;
 }
+
 .subtitle {
-    display: block;
-    color: var(--black75, rgba(38, 31, 34, 0.75));
-    font-family: Bricolage;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 26px;
+  font-family: Bricolage, sans-serif;
+  font-size: 1.25rem;
+  color: #555;
+  margin-bottom: 28px;
+  text-align: center;
+  font-weight: 400;
+  z-index: 1;
 }
+
 .contact-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 40px 0;
-
+  display: flex;
+  flex-direction: row;
+  gap: 28px;
+  margin-bottom: 32px;
+  z-index: 1;
 }
-.email-btn {
-    display: flex;
-    width: 300px;
-    padding: 32px;
-    flex-direction: column;
-    align-items: center;
-    border: none;
-    border-radius: 8px;
-    background: var(--Accent, #FC3A79);
-    color: #FFF;
-    letter-spacing: 2px;
 
-    font-family:'Courier New', Courier, monospace;
-    font-size: 15px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 24px;
+.contact-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  border-radius: 14px;
+  padding: 18px 38px;
+  font-family: Bricolage, monospace;
+  font-size: 1.08rem;
+  font-weight: 500;
+  background: #fff;
+  color: #FC3A79;
+  box-shadow: 0 2px 8px rgba(252, 58, 121, 0.08);
+  cursor: pointer;
+  transition: background 0.22s, color 0.22s, transform 0.22s;
+  outline: none;
+  position: relative;
+  z-index: 1;
 }
-.phone-btn {
-    display: flex;
-    width: 300px;
-    padding: 32px;
-    flex-direction: column;
-    align-items: center;
-    border: none;
-    border-radius: 8px;
-    background: #ffffff;
-    color: #000;
+.contact-btn:hover {
+  background: #FC3A79;
+  color: #fff;
+  transform: translateY(-2px) scale(1.04);
+}
+.email-btn .contact-icon {
+  filter: grayscale(0) brightness(0.7) sepia(1) hue-rotate(-30deg) saturate(2);
+}
+.phone-btn .contact-icon {
+  filter: grayscale(0) brightness(0.7) sepia(1) hue-rotate(180deg) saturate(2);
+}
+.contact-icon {
+  width: 22px;
+  height: 22px;
+  transition: filter 0.22s;
+}
 
-    font-family: Brandon;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 450;
-    line-height: 24px;
-}
 .connect {
-    color: #FFF;
-    font-family: Bricolage;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 26px;
-
-    display: flex;
-    margin-top: 40px;
-    margin-bottom: 100px;
-    padding: 24px 48px;
-    align-items: center;
-    border-radius: 100px;
-    border: none;
-    background: var(--brand-gradient, linear-gradient(90deg, #FE572E 0%, #FC3A79 100%));
-    box-shadow: 0px 2.767px 2.214px 0px rgba(0, 0, 0, 0.02), 0px 6.65px 5.32px 0px rgba(0, 0, 0, 0.03), 0px 12.522px 10.017px 0px rgba(0, 0, 0, 0.04), 0px 22.336px 17.869px 0px rgba(0, 0, 0, 0.04);
+  margin-top: 18px;
+  padding: 22px 64px;
+  border-radius: 100px;
+  border: none;
+  background: linear-gradient(90deg, #FE572E 0%, #FC3A79 100%);
+  color: #fff;
+  font-family: Bricolage, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 24px rgba(252, 58, 121, 0.10), 0 1.5px 6px rgba(0,0,0,0.07);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: background 0.22s, transform 0.22s;
+  z-index: 1;
+  animation: fadeUp 0.9s cubic-bezier(.4,2,.6,1) both;
 }
-@media (max-width: 768px) {
-    .freelance-section {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 40px;
-    }
-    .title {
-        font-size: 30px;
-        line-height: 30px;
-    }
-    .subtitle {
-        font-size: 15px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 24px;
-        text-align: left;
-    }
-    .contact-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 30px 0;
-    }
-    .email-btn {
-        padding: 20px;
-        margin-bottom: 20px;
-    }
-    .phone-btn {
-        padding: 20px;
-        margin: 0;
-    }
-    .connect {
-        font-size: 15px;
-        font-style: normal;
-        font-weight: 600;
-        line-height: 25px;
+.connect:hover {
+  background: linear-gradient(90deg, #FC3A79 0%, #FE572E 100%);
+  transform: translateY(-2px) scale(1.04);
+}
+.connect-icon {
+  width: 26px;
+  height: 26px;
+  margin-right: 2px;
+  filter: drop-shadow(0 2px 6px rgba(252, 58, 121, 0.10));
+  transition: filter 0.22s;
+}
 
-        margin-top: 20px;
-        margin-bottom: 60px;
-        padding: 12px 40px;
-        align-items: center;
-    }
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 900px) {
+  .freelance-card {
+    padding: 28px 8px 24px 8px;
+    border-radius: 18px;
+    max-width: 98vw;
+  }
+  .contact-container {
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+  .connect {
+    font-size: 1rem;
+    padding: 14px 18px;
+    border-radius: 60px;
+  }
+  .title {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  .subtitle {
+    font-size: 0.98rem;
+    margin-bottom: 18px;
+  }
 }
 </style>

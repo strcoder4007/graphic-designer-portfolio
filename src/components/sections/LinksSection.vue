@@ -22,7 +22,7 @@
     padding-bottom: 30px;
     height: auto;
     min-height: 300px;
-    width: 100vw;
+    width: 100%;
     background: linear-gradient(180deg, #ffffff 0%, #FF745B 100%);
     backdrop-filter: blur(2px);
     display: flex;

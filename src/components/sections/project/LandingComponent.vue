@@ -95,10 +95,23 @@ export default {
 
 <style lang="scss" scoped>
 .project-landing-page {
-  margin: 80px;
+  margin: 80px auto;
+  padding: 0 16px;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+/* Prevent Element Plus grid from causing overflow */
+.el-row, .el-col {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 .image-container {
-    width: 400px;
+    width: 100%;
+    max-width: 400px;
     height: 250px;
     background-color: #f0f0f0; 
     background-repeat: no-repeat;
@@ -115,17 +128,50 @@ export default {
 
 
 .cvfy-container {
+  width: 100%;
   max-width: 400px;
   margin: 50px auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .cvfy-card {
+  width: 100%;
+  box-sizing: border-box;
   background-color: white;
   border-radius: 8px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   margin-bottom: 40px;
   cursor: pointer;
+  transition: box-shadow 0.3s, transform 0.3s;
+  position: relative;
+}
+.cvfy-card:hover {
+  box-shadow: 0 8px 32px rgba(252, 58, 121, 0.18), 0 2px 12px rgba(0,0,0,0.12);
+  transform: translateY(-6px) scale(1.03);
+}
+.image-container {
+  width: 100%;
+  max-width: 400px;
+  height: 250px;
+  background-color: #f0f0f0; 
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden; 
+  transition: transform 0.3s;
+}
+.cvfy-card:hover .image-container img {
+  transform: scale(1.08);
+}
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
 }
 
 .card-header {
@@ -163,41 +209,48 @@ export default {
   font-size: 25px;
   font-weight: 600;
   font-family: 'Brandon';
-  display: flex;
+  display: block;
+  text-align: left;
+  margin-top: 8px;
+  margin-bottom: 4px;
 }
 
 .project-description {
   font-size: 15px;
   font-family: 'Bricolage';
-  display: flex;
+  display: block;
   text-align: left;
-  margin: 10px 0;
+  margin: 10px 0 16px 0;
 }
 
 .links-container {
   display: flex;
   flex-direction: row;
-  justify-content: start;
-  .live, .code, .behance, .figma {
-    font-size: 18px;
-    font-weight: 500;
-    font-family: 'Brandon';
-    margin-right: 30px;
-    cursor: pointer;
-    img {
-      height: 20px;
-      margin-bottom: -5px;
-      margin-left: 2px;
-    }
-  }
-  .live:hover, .code:hover, .behance:hover, .figma:hover {
-    text-decoration: underline;
-  }
+  justify-content: flex-start;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 8px;
+}
+.live, .code, .behance, .figma {
+  font-size: 18px;
+  font-weight: 500;
+  font-family: 'Brandon';
+  margin-right: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.live:hover, .code:hover, .behance:hover, .figma:hover {
+  text-decoration: underline;
 }
 
 @media (max-width: 768px) {
   .project-landing-page {
-    margin: 60px 5px;
+    width: 100%;
+    margin: 60px 0;
+    padding: 0 5px;
+    box-sizing: border-box;
   }
 }
 </style>
