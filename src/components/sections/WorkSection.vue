@@ -2,8 +2,6 @@
   <div class="container" id="work-section">
     <el-row>
       <el-col class="work-section">
-        <div class="greetings">My work</div>
-        <div class="description">I specialize in website design,<br>but I’ve also designed successful iOS and Android apps.</div>
         <LandingComponent></LandingComponent>
       </el-col>
     </el-row>

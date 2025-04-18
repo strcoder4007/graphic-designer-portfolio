@@ -3,7 +3,6 @@
     <div class="navbar-inner">
       <div class="navbar-brand" @click="navigate('Home')">
         <img src="../assets/icons/brand-icon.png" alt="Brand" class="brand-icon" />
-        <span class="brand-name">Riny</span>
       </div>
       <nav :class="['navbar-links', { open: menuOpen }]">
         <a
@@ -172,14 +171,21 @@ function navigate(name) {
   height: 36px;
 }
 .navbar-social a:hover {
-  background: rgba(252, 58, 121, 0.13);
+  background: rgb(255, 255, 255);
 }
 .navbar-social img {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 18px;
   opacity: 0.88;
   transition: opacity 0.18s, transform 0.18s;
-  border-radius: 5px;
+}
+.navbar-social a[href*="dribbble"] img {
+  width: 22px;
+  height: 20px;
+}
+.navbar-social a[href*="behance"] img {
+  width: 18px;
+  height: 16px;
 }
 .navbar-social img:hover {
   opacity: 1;
