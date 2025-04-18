@@ -4,10 +4,6 @@
     <WorkSection></WorkSection>
     <ToolsSection></ToolsSection>
     <FreelanceSection></FreelanceSection>
-    <span class="designed-by-me">
-      <img src="../assets/icons/heart.png" alt="Heart Icon" />
-      Designed by me
-    </span>
     <FooterSection></FooterSection>
   </div>
 </template>
