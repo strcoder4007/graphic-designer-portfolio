@@ -23,6 +23,30 @@ export default {
   font-family: 'Brandon';
   src: url('./assets/fonts/Brandon_reg.otf');
 }
+@font-face {
+  font-family: 'Neue Montreal';
+  src: url('./assets/fonts/NeueMontreal-Regular.otf');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Neue Montreal';
+  src: url('./assets/fonts/NeueMontreal-Medium.otf');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Neue Montreal';
+  src: url('./assets/fonts/NeueMontreal-Bold.otf');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Neue Montreal';
+  src: url('./assets/fonts/NeueMontreal-Light.otf');
+  font-weight: 300;
+  font-style: normal;
+}
 
 html {
   scroll-behavior: smooth;
@@ -38,7 +62,7 @@ html {
 }
 
 #app {
-  font-family: Bricolage, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Neue Montreal', Bricolage, Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -59,13 +83,8 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   box-sizing: border-box;
-  /* Simple, creative linear gradient using accent shades */
-  background: linear-gradient(
-    120deg,
-    #ffe0e6 0%,
-    #fc3a79 60%,
-    #b82a5a 100%
-  );
+  /* Extra subtle linear gradient between #FE572E and #FC3A79 */
+  background: linear-gradient(120deg, rgba(252, 207, 196, 0.4) 0%, rgba(239, 118, 156, 0.3) 100%);
   position: relative;
 }
 body::before, body::after, body::blob1, body::blob2, body::blob3 {
@@ -167,5 +186,28 @@ input:focus {
 
 .el-message__content {
   font-family: Bricolage;
+}
+
+/* Custom design for el-button */
+.el-button {
+  background: linear-gradient(90deg, rgba(254,87,46,0.13) 0%, rgba(252,58,121,0.13) 100%);
+  color: #FC3A79;
+  border: none;
+  border-radius: 14px;
+  font-family: 'Neue Montreal', Bricolage, 'Brandon', Arial, sans-serif;
+  font-size: 1.08rem;
+  font-weight: 500;
+  padding: 12px 32px;
+  box-shadow: 0 2px 8px rgba(252, 58, 121, 0.07);
+  transition: background 0.22s, color 0.22s, box-shadow 0.22s, transform 0.18s;
+  outline: none;
+  cursor: pointer;
+}
+.el-button:hover,
+.el-button:focus {
+  background: linear-gradient(90deg, #FE572E 0%, #FC3A79 100%);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(252, 58, 121, 0.13);
+  transform: translateY(-2px) scale(1.04);
 }
 </style>

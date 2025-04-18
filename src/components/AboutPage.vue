@@ -3,7 +3,7 @@
     <div class="about-page">
       <el-row>
         <el-col :span="24">
-          <span class="header">Hi! I’m Riny yadav. </span>
+          <span class="header">About Riny Yadav</span>
           <span class="description" v-html="description"></span>
           <el-row class="image-section">
             <el-col :md="12"><img src="../assets/portrait/one.png"></el-col>
@@ -11,27 +11,27 @@
           </el-row>
         </el-col>
       </el-row>
-      <div class="promises-header">Regardless of project size, you will always get:</div>
+      <div class="promises-header">What I Deliver</div>
       <el-row>
         <el-col :md="12" class="promises">
           <img src="../assets/icons/clock.svg">
-          <span class="promise-subheader">On-time delivery</span>
-          <span class="promise-description">I know time is money so I don’t want to waste yours. Or mine. So I guarantee that I will always deliver what you pay for as promised.</span>
+          <span class="promise-subheader">AI-Driven Speed & Reliability</span>
+          <span class="promise-description">Harnessing the power of AI, I deliver projects with unmatched speed and precision—always on time, every time.</span>
         </el-col>
         <el-col :md="12" class="promises">
           <img src="../assets/icons/quality.svg">
-          <span class="promise-subheader">Quality</span>
-          <span class="promise-description">I don’t want to put my name on something subpar so my first concern is always quality. No matter what, you will love the end result.</span>
+          <span class="promise-subheader">Data-Optimized Quality</span>
+          <span class="promise-description">My designs are continuously refined using AI insights, ensuring pixel-perfect quality and optimal user engagement for every project.</span>
         </el-col>
         <el-col :md="12" class="promises">
           <img src="../assets/icons/rocket.svg">
-          <span class="promise-subheader">I can design and build a responsive and accessible  website</span>
-          <span class="promise-description">My goal is to build accessible and responsive user interfaces for the web and mobile, while preserving the best practices for proper user experience. </span>
+          <span class="promise-subheader">Adaptive & Scalable Web Design</span>
+          <span class="promise-description">I create intelligent, responsive interfaces that adapt to user needs and business goals, scaling effortlessly across platforms and audiences.</span>
         </el-col>
         <el-col :md="12" class="promises">
           <img src="../assets/icons/phone.svg">
-          <span class="promise-subheader">I can design a mobile app for iOS and Android</span>
-          <span class="promise-description">I started designing mobile apps and I love it. It’s a different process compared to traditional website design but I’ve been successful in all projects so far.</span>
+          <span class="promise-subheader">Intelligent Mobile Solutions</span>
+          <span class="promise-description">From ideation to launch, I design mobile apps powered by AI—delivering seamless, intuitive experiences that drive results on iOS and Android.</span>
         </el-col>
       </el-row>
     </div>
@@ -53,11 +53,8 @@ export default {
     
   },
   setup() {
-    const description = `An illustrator, designer who brings inclusive, minimal and future oriented user experience to people in need.<br><br>
-    I came to graphic design from a background in human resources, which gives me a strong background in communication, It was the best decision I ever made because it showed me what I wanted to do for the rest of my life.<br><br>
-    I was driven to designing because it felt exciting and rewarding to learn about people’s goals and desires, help them solve their problems and make their lives easier.<br><br>
-    I help businesses all around the world by designing websites and mobile apps.<br><br>
-    Right now I’m based in Noida.`;
+    const description = `I am Riny, your AI-powered graphic designer, blending advanced artificial intelligence with creative expertise to deliver next-generation digital experiences. My approach leverages data-driven insights, rapid prototyping, and adaptive design to help brands and businesses stay ahead in a fast-evolving digital world.<br><br>
+    From intuitive user interfaces to visually striking graphics, I specialize in transforming ideas into scalable, high-impact solutions—faster and smarter. Collaborate with me to unlock the full potential of AI-driven design for your business.`;
     return {
       description
     }

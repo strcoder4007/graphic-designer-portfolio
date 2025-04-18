@@ -149,16 +149,18 @@ export default {
   color: #fff;
   transform: translateY(-2px) scale(1.04);
 }
-.email-btn .contact-icon {
-  filter: grayscale(0) brightness(0.7) sepia(1) hue-rotate(-30deg) saturate(2);
-}
-.phone-btn .contact-icon {
-  filter: grayscale(0) brightness(0.7) sepia(1) hue-rotate(180deg) saturate(2);
-}
+.email-btn .contact-icon,
+.phone-btn .contact-icon,
 .contact-icon {
   width: 22px;
   height: 22px;
+  /* #FC3A79 filter */
+  filter: brightness(0) saturate(100%) sepia(1) hue-rotate(-30deg) saturate(6);
   transition: filter 0.22s;
+}
+.contact-btn:hover .contact-icon {
+  /* white */
+  filter: brightness(0) invert(1);
 }
 
 .connect {
@@ -182,14 +184,15 @@ export default {
   animation: fadeUp 0.9s cubic-bezier(.4,2,.6,1) both;
 }
 .connect:hover {
-  background: linear-gradient(90deg, #FC3A79 0%, #FE572E 100%);
+  background: linear-gradient(90deg, #FE572E 0%, #FC3A79 100%);
   transform: translateY(-2px) scale(1.04);
 }
 .connect-icon {
   width: 26px;
   height: 26px;
   margin-right: 2px;
-  filter: drop-shadow(0 2px 6px rgba(252, 58, 121, 0.10));
+  /* always white to match .connect text */
+  filter: brightness(0) invert(1) drop-shadow(0 2px 6px rgba(252, 58, 121, 0.10));
   transition: filter 0.22s;
 }
 
