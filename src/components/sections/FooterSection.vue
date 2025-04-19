@@ -2,21 +2,21 @@
   <footer class="footer-section">
     <div class="footer-content">
       <div class="footer-links-row">
-        <a class="footer-link" href="/" aria-label="Home">Home</a>
-        <a class="footer-link" href="/about" aria-label="About">About</a>
-        <a class="footer-link" href="/work" aria-label="Work">Work</a>
-        <a class="footer-link" href="/contact" aria-label="Contact">Contact</a>
+        <a class="footer-link" href="javascript:void(0);" aria-label="Home" @click="navigate('Home')">Home</a>
+        <a class="footer-link" href="javascript:void(0);" aria-label="About" @click="navigate('About')">About</a>
+        <a class="footer-link" href="javascript:void(0);" aria-label="Work" @click="navigate('work')">Work</a>
+        <a class="footer-link" href="javascript:void(0);" aria-label="Contact" @click="navigate('Contact')">Contact</a>
         <a class="footer-link" href="https://strcoder4007.github.io/graphic-designer-portfolio/resume.pdf" target="_blank" aria-label="Resume">Resume</a>
       </div>
       <div class="footer-social">
         <a href="https://dribbble.com/rinydesigns" target="_blank" aria-label="Dribbble">
-          <img src="../../assets/icons/dribble-icon-colored.svg" alt="Dribbble Icon" />
+          <img src="../../assets/icons/dribble-icon-colored.svg" alt="Dribbble Icon" loading="lazy" />
         </a>
         <a href="https://www.linkedin.com/in/riny-yadav-a24a90238/" target="_blank" aria-label="LinkedIn">
-          <img src="../../assets/icons/linkedin-icon-colored.svg" alt="LinkedIn Icon" />
+          <img src="../../assets/icons/linkedin-icon-colored.svg" alt="LinkedIn Icon" loading="lazy" />
         </a>
         <a href="https://www.behance.net/rinyyadav" target="_blank" aria-label="Behance">
-          <img src="../../assets/icons/behance-icon-colored.svg" alt="Behance Icon" />
+          <img src="../../assets/icons/behance-icon-colored.svg" alt="Behance Icon" loading="lazy" />
         </a>
       </div>
       <div class="footer-tagline">
@@ -33,6 +33,11 @@
 <script>
 export default {
   name: "FooterSection",
+  methods: {
+    navigate(name) {
+      this.$router.push({ name });
+    }
+  }
 };
 </script>
 
@@ -177,13 +182,31 @@ export default {
   }
   .footer-content {
     gap: 10px;
+    padding-left: 8px;
+    padding-right: 8px;
   }
   .footer-links-row {
     gap: 10px;
     font-size: 0.92rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .footer-link {
+    min-width: 90px;
+    text-align: center;
+    padding: 10px 8px;
+    font-size: 1rem;
+    margin: 2px 0;
   }
   .footer-social {
     gap: 10px;
+    a {
+      min-width: 36px;
+      min-height: 36px;
+      width: 36px;
+      height: 36px;
+      padding: 4px;
+    }
     a img {
       width: 18px;
       height: 18px;

@@ -7,14 +7,14 @@
           <span v-html="category.icon"></span>
         </span>
         <span class="category-icon" v-else-if="category.iconType === 'img'">
-          <img :src="category.icon" :alt="category.name + ' icon'" />
+          <img :src="category.icon" :alt="category.name + ' icon'" loading="lazy" />
         </span>
         <span class="category-title">{{ category.name }}</span>
       </div>
       <div class="project-list">
         <div class="project-card" v-for="project in category.projects" :key="project.id">
           <div class="project-image">
-            <img :src="project.image" :alt="project.name" />
+            <img :src="project.image" :alt="project.name" loading="lazy" />
           </div>
           <div class="project-info">
             <div class="project-name">{{ project.name }}</div>
@@ -29,7 +29,7 @@
                 rel="noopener"
               >
                 {{ link.label }}
-                <img src="../../../assets/icons/arrow-right.png" alt="Arrow Right" />
+                <img src="../../../assets/icons/arrow-right.png" alt="Arrow Right" loading="lazy" />
               </a>
             </div>
           </div>
@@ -374,6 +374,10 @@ export default {
   }
 }
 @media (max-width: 600px) {
+  .project-landing {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
   .project-landing-title {
     font-size: 1.3rem;
     margin-bottom: 28px;
@@ -392,6 +396,7 @@ export default {
     width: 100%;
     min-width: 0;
     border-radius: 12px;
+    margin-bottom: 16px;
   }
   .project-image {
     height: 120px;

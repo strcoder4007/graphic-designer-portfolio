@@ -185,11 +185,17 @@ function navigate(name) {
 }
 .navbar-social a[href*="behance"] img {
   width: 18px;
-  height: 16px;
+  height: 14px;
 }
 .navbar-social img:hover {
   opacity: 1;
   transform: scale(1.15);
+  width: 22px;
+  height: 18px !important;
+}
+.navbar-social a[href*="behance"] img:hover {
+  height: 14px !important;
+  width: 22px;
 }
 
 .navbar-toggle {

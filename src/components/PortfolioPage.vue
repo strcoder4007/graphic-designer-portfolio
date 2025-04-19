@@ -1,6 +1,5 @@
 <template>
   <div class="portfolio-page">
-    <div class="greetings">Projects</div>
     <LandingComponent></LandingComponent>
     <FooterSection></FooterSection>
   </div>

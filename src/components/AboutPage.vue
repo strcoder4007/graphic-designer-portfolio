@@ -12,7 +12,7 @@
       </div>
       <div class="about-hero-image">
         <div class="about-image-container">
-          <img src="../assets/portrait/one.png" alt="Riny Yadav Portrait" />
+          <img src="../assets/portrait/one.png" alt="Riny Yadav Portrait" loading="lazy" />
         </div>
       </div>
     </div>
@@ -20,7 +20,9 @@
 
   <section class="about-expertise">
     <div class="expertise-block">
-      <img src="../assets/icons/quality.svg" alt="Design Icon" />
+      <div class="expertise-icon">
+        <img src="../assets/icons/quality.svg" alt="Design Icon" loading="lazy" />
+      </div>
       <div>
         <h2>Traditional Graphic Design</h2>
         <p>
@@ -29,7 +31,9 @@
       </div>
     </div>
     <div class="expertise-block">
-      <img src="../assets/icons/rocket.svg" alt="AI Icon" />
+      <div class="expertise-icon">
+        <img src="../assets/icons/rocket.svg" alt="AI Icon" loading="lazy" />
+      </div>
       <div>
         <h2>AI-Driven Creation & Prompting</h2>
         <p>
@@ -43,19 +47,19 @@
     <h2 class="process-title">How I Work</h2>
     <div class="process-steps">
       <div class="process-step">
-        <img src="../assets/icons/brand-icon.png" alt="Discovery" />
+        <img src="../assets/icons/brand-icon.png" alt="Discovery" loading="lazy" />
         <span>Discovery & Strategy</span>
       </div>
       <div class="process-step">
-        <img src="../assets/icons/quality.svg" alt="Design" />
+        <img src="../assets/icons/quality.svg" alt="Design" loading="lazy" />
         <span>Design & Prototyping</span>
       </div>
       <div class="process-step">
-        <img src="../assets/icons/rocket.svg" alt="AI Generation" />
+        <img src="../assets/icons/rocket.svg" alt="AI Generation" loading="lazy" />
         <span>AI Generation, Prompting & Iteration</span>
       </div>
       <div class="process-step">
-        <img src="../assets/icons/phone.svg" alt="Delivery" />
+        <img src="../assets/icons/phone.svg" alt="Delivery" loading="lazy" />
         <span>Delivery & Support</span>
       </div>
     </div>
@@ -194,14 +198,40 @@ export default {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    gap: 24px;
+    gap: 12px;
     background: none;
     padding: 0;
-    img {
-      width: 54px;
-      height: 54px;
-      margin-top: 4px;
+
+    .expertise-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 64px;
+      min-height: 64px;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #FE572E 0%, #FC3A79 100%);
+      box-shadow: 0 4px 16px 0px rgba(252, 58, 121, 0.13), 0 2px 8px rgba(0,0,0,0.08);
+      transition: transform 0.18s, box-shadow 0.18s;
+      margin-right: 0;
+      margin-top: 0;
+      position: relative;
+      z-index: 1;
+      &:hover {
+        transform: scale(1.08) rotate(-3deg);
+        box-shadow: 0 8px 32px 0px rgba(252, 58, 121, 0.18), 0 4px 16px rgba(0,0,0,0.12);
+      }
+      img {
+        width: 38px;
+        height: 38px;
+        margin: 0;
+        display: block;
+        /* Make icon white for best contrast on gradient background */
+        filter: brightness(0) invert(1) drop-shadow(0 1px 2px rgba(252, 58, 121, 0.10));
+      }
     }
+
     h2 {
       font-family: 'Neue Montreal', 'Brandon', Arial, sans-serif;
       font-size: 1.5rem;
@@ -330,10 +360,19 @@ export default {
     .expertise-block {
       flex-direction: row;
       align-items: flex-start;
-      gap: 18px;
-      img {
-        width: 40px;
-        height: 40px;
+      gap: 10px;
+
+      .expertise-icon {
+        min-width: 44px;
+        min-height: 44px;
+        width: 44px;
+        height: 44px;
+        img {
+          width: 24px;
+          height: 24px;
+          /* Make icon white for best contrast on gradient background */
+          filter: brightness(0) invert(1) drop-shadow(0 1px 2px rgba(252, 58, 121, 0.10));
+        }
       }
       h2 {
         font-size: 1.2rem;
@@ -354,6 +393,9 @@ export default {
   .about-hero {
     padding: 36px 0 18px 0;
   }
+  .about-hero-content {
+    padding: 0 8px;
+  }
   .about-title {
     font-size: 2rem;
     span.about-role {
@@ -372,10 +414,24 @@ export default {
     gap: 18px;
     padding: 18px 4px;
     .expertise-block {
-      gap: 10px;
-      img {
-        width: 28px;
-        height: 28px;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+      text-align: center;
+
+      .expertise-icon {
+        min-width: 32px;
+        min-height: 32px;
+        width: 32px;
+        height: 32px;
+        margin-bottom: 6px;
+        img {
+          width: 18px;
+          height: 18px;
+          /* Make icon white for best contrast on gradient background */
+          filter: brightness(0) invert(1) drop-shadow(0 1px 2px rgba(252, 58, 121, 0.10));
+        }
       }
       h2 {
         font-size: 1rem;
@@ -400,6 +456,8 @@ export default {
   }
   .about-cta {
     padding: 24px 0 12px 0;
+    padding-left: 8px;
+    padding-right: 8px;
     h2 {
       font-size: 1.1rem;
     }
